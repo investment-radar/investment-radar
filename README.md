@@ -35,6 +35,7 @@
 
 ## 功能性组件
 
+* delayed_job
 * font-awesome
 * sidekiq？ resque？
 * lograge
@@ -48,6 +49,11 @@
 * pry？
 
 ## 本地开发设置
+1. 安装heroku-cli [Link](https://devcenter.heroku.com/articles/heroku-cli#macos)
+2. 安装postgres.app
+3. 启动web server和workers `heroku local`
+	* 仅启动web `heroku local web`
+	* 仅启动worker `heroku local worker`
 
 ## 测试说明
 
