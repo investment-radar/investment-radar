@@ -1,8 +1,7 @@
 class NoticesMailer < ApplicationMailer
-  def notify_to_sell(recipient:, symbol:)
-    @recipient = recipient
+  def notify_to_sell(email:, symbol:)
     @symbol = symbol
 
-    mail to: recipient.email, subject: "It's time to sell: #{symbol}"
+    mail to: email, subject: "It's time to sell: #{symbol}"
   end
 end
