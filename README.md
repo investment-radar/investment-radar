@@ -29,9 +29,6 @@
 * 直接使用`erb`，而不使用`slim`或者`haml`
 
 * 直接使用`form_with`，而不再使用`simple_form`
-  
-* 直接使用`rails`提供的各种测试组件，而不再使用`rspec`
-
 
 ## 功能性组件
 
