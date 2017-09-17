@@ -28,11 +28,11 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 gem 'delayed_job_active_record'
 gem 'mailgun-ruby', '~>1.1.6'
+
+gem 'yahoo-finance', :github => 'herval/yahoo-finance'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,6 +44,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  gem 'awesome_print', require: 'ap'
 end
 
 group :development do
