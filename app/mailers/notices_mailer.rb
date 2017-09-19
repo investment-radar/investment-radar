@@ -1,7 +1,15 @@
 class NoticesMailer < ApplicationMailer
-  def notify_to_sell(email:, symbol:)
-    @symbol = symbol
+  def notify_to_sell(email:)
+    @results = StockService.call
 
-    mail to: email, subject: "It's time to sell: #{symbol}"
+    subject = "Stock:"
+
+    @results.each do |result|
+      subject += " #{result.action}-#{result.symbol}"
+    end
+
+    puts subject
+
+    mail to: email, subject: subject
   end
 end
