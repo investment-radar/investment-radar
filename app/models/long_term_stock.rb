@@ -1,0 +1,2 @@
+class LongTermStock < ApplicationRecord
+end
