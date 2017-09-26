@@ -1,11 +1,11 @@
 class NoticesMailer < ApplicationMailer
-  def notify_to_sell(email:, results:)
-    @results = results
+  def notify_to_sell(email:)
+    @stocks = LongTermStock.all
 
     subject = "Stock:"
 
-    @results.each do |result|
-      subject += " #{result.action}-#{result.symbol.upcase}"
+    @stocks.each do |stock|
+      subject += " #{stock.action}-#{stock.stock_symbol.upcase}"
     end
 
     puts subject

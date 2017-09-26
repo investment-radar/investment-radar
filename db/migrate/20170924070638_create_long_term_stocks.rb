@@ -5,6 +5,7 @@ class CreateLongTermStocks < ActiveRecord::Migration[5.1]
       t.float :target_price, null: false
       t.float :bid_price
       t.float :last_trade_price
+      t.string :action, limit: 10
 
       t.timestamps
     end

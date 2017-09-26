@@ -2,13 +2,13 @@
   Dear Bing
 </h3>
 
-<% @results.each do |result| %>
+<% @stocks.each do |stock| %>
   <hr>
-  <p>Symbol: <%= result.symbol.upcase %></p>
-  <p>Bid: <%= result.bid %></p>
-  <p>Target: <%= result.target_price %></p>
-  <p>Action: <%= result.action %></p>
-  <p>Last: <%= result.last_trade_price %></p>
+  <p>Symbol: <%= stock.stock_symbol.upcase %></p>
+  <p>Bid: <%= stock.bid_price %></p>
+  <p>Target: <%= stock.target_price %></p>
+  <p>Action: <%= stock.action %></p>
+  <p>Last: <%= stock.last_trade_price %></p>
 <% end %>
 
 Sincerely,

@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170924070638) do
     t.float "target_price", null: false
     t.float "bid_price"
     t.float "last_trade_price"
+    t.string "action", limit: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
