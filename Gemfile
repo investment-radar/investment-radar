@@ -40,6 +40,8 @@ group :development, :test do
   gem 'pry-byebug'
 
   gem 'rspec-rails', '~> 3.6'
+  gem "ffaker"
+  gem 'factory_girl_rails'
 
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'

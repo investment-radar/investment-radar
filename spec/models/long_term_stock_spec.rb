@@ -15,8 +15,8 @@
 require 'rails_helper'
 
 RSpec.describe LongTermStock, type: :model do
-  describe '#update_action' do
-    let(:stock)      { LongTermStock.create(stock_symbol: 'shop', target_price: 100.5) }
+  describe 'new created record #update_action' do
+    let(:stock)      { create(:long_term_stock, target_price: 100.5) }
     let(:result)     { OpenStruct.new(bid: bid_price, last_trade_price: "90.5", symbol: "shop") }
 
     before { stock.update_action(result) }
