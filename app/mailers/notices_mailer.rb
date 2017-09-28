@@ -8,8 +8,6 @@ class NoticesMailer < ApplicationMailer
       subject += " #{stock.action}-#{stock.stock_symbol.upcase}"
     end
 
-    puts subject
-
     mail to: email, subject: subject
   end
 end
