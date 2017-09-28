@@ -28,22 +28,34 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
+# ActiveRecord backend integration for DelayedJob 3.0+
 gem 'delayed_job_active_record'
+
+# Mailgun's Official Ruby Library
 gem 'mailgun-ruby', '~>1.1.6'
+
+# A dead simple wrapper for yahoo finance quotes end-point.
+gem 'yahoo-finance', :github => 'herval/yahoo-finance'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Adds step-by-step debugging and stack navigation capabilities to pry using byebug.
   gem 'pry-byebug'
 
   gem 'rspec-rails', '~> 3.6'
 
+  # ffaker is a rewrite of faker
+  gem "ffaker"
+
+  gem 'factory_girl_rails'
+
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  # Pretty print your Ruby objects with style -- in full color and with proper indentation
+  gem 'awesome_print', require: 'ap'
 end
 
 group :development do
@@ -52,7 +64,11 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Annotate Rails classes with schema and routes info
+  gem 'annotate'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

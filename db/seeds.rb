@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+LongTermStock.create([{ stock_symbol: 'shop', target_price: 98.0 }, { stock_symbol: 'tsla', target_price: 351.64 }])

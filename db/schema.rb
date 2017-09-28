@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706040914) do
+ActiveRecord::Schema.define(version: 20170924070638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20170706040914) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "long_term_stocks", force: :cascade do |t|
+    t.string "stock_symbol", limit: 10, null: false
+    t.float "target_price", null: false
+    t.float "bid_price"
+    t.float "last_trade_price"
+    t.string "action", limit: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
