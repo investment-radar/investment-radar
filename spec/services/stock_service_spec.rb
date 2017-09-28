@@ -4,13 +4,10 @@ RSpec.describe StockService do
 
   let(:yahoo_client) { YahooFinance::Client.new }
   let(:yahoo_result) { OpenStruct.new(bid: "350.06", last_trade_price: "351.09", symbol: "tsla") }
+  let!(:stock) { create(:long_term_stock, stock_symbol: 'tsla', target_price: 351.64) }
   let(:stockes) { LongTermStock.all }
 
   subject { described_class.call(stockes, yahoo_client) }
-
-  before do
-    LongTermStock.create(stock_symbol: 'tsla', target_price: 351.64)
-  end
 
   context "when mocks the yahoo client quoties API" do
     before do
@@ -19,7 +16,8 @@ RSpec.describe StockService do
 
     it 'updates the long term stock record' do
       expect(subject.size).to eq 1
-      stock = LongTermStock.last
+
+      stock.reload
 
       expect(stock.bid_price).to eq 350.06
       expect(stock.last_trade_price).to eq 351.09
