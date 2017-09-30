@@ -12,7 +12,7 @@ RSpec.describe NoticesMailer do
 
   describe '#notify_to_sell' do
     it 'renders the headers' do
-      expect(mail.subject).to eql "Stock: sell-TSLA hold-SHOP"
+      expect(mail.subject).to eql "(test) Stock: sell-TSLA hold-SHOP"
       expect(mail.to).to eq(["user_abc@example.com"])
       expect(mail.from).to eq(["bing708@gmail.com"])
     end
