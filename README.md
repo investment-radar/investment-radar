@@ -15,9 +15,10 @@
 * Rails 5.1
 * Redux + React.js
 * ES6 (not coffeescript)
-* Bootstrap 4?
+* Bourbon
 * Postgresql
 * Puma
+* Rspec, Capybara, FactoryGirl, ffaker
 
 ## Gem的选择理念
 
@@ -34,7 +35,6 @@
 
 * delayed_job
 * font-awesome
-* sidekiq？ resque？
 * lograge
 
 ## 开发辅助gems
@@ -43,24 +43,28 @@
 * rubocop
 * foreman
 * reek
-* pry？
+* pry, byebug
 
 ## 第三方服务
 
 * mailgun - 邮件服务
-*
+* yahoo finance API
 
 ## 本地开发设置
 1. 安装heroku-cli [Link](https://devcenter.heroku.com/articles/heroku-cli#macos)
 2. 安装postgres.app
-3. 启动web server和workers `heroku local`
+3. 创建和设置数据库
+  * `rails db:create db:migrate db:seed`
+4. 启动web server和workers `heroku local`
 	* 仅启动web server `heroku local web`
 	* 仅启动worker `heroku local worker`
-4. 或者安装`autoenv`,帮助自动加载.env中的环境变量,然后
+5. 或者安装`autoenv`,帮助自动加载.env中的环境变量,然后
   * 仅启动web server `rails s`
   * 仅启动worker `rake jobs:work`
 
 ## 测试说明
+
+`bundle exec rspec`
 
 ## 部署说明
 
