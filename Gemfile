@@ -68,7 +68,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Annotate Rails classes with schema and routes info
-  gem 'annotate'
+  gem 'annotate', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
