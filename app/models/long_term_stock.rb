@@ -16,15 +16,16 @@ class LongTermStock < ApplicationRecord
   SELL_ACTION = "sell".freeze
   HOLD_ACTION = "hold".freeze
 
-  def update_action(result)
-    return unless result.bid
+  def update_action(bid_price, last_trade_price)
+    return unless bid_price
+    new_bid_price = bid_price.to_f
 
-    if result.bid.to_f < target_price
+    if new_bid_price < target_price
       action = SELL_ACTION
     else
       action = HOLD_ACTION
     end
 
-    update(action: action, bid_price: result.bid.to_f, last_trade_price: result.last_trade_price)
+    update(action: action, bid_price: new_bid_price, last_trade_price: last_trade_price)
   end
 end

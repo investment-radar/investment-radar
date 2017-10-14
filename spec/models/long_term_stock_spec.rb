@@ -15,11 +15,11 @@
 require 'rails_helper'
 
 RSpec.describe LongTermStock, type: :model do
+  before { stock.update_action(result.bid, result.last_trade_price) }
+
   describe 'new created record #update_action' do
     let(:stock)      { create(:long_term_stock, target_price: 100.5) }
     let(:result)     { OpenStruct.new(bid: bid_price, last_trade_price: "90.5", symbol: "shop") }
-
-    before { stock.update_action(result) }
 
     context "when bid price less than target price" do
       let(:bid_price)  { "100.00" }
@@ -55,8 +55,6 @@ RSpec.describe LongTermStock, type: :model do
   describe "when alread has the bid_price, action and last_trade_price" do
     let(:stock)      { create(:long_term_stock, target_price: 100.5, bid_price: 101.5, last_trade_price: 101.0, action: 'hold') }
     let(:result)     { OpenStruct.new(bid: bid_price, last_trade_price: "101.3", symbol: "shop") }
-
-    before { stock.update_action(result) }
 
     context "when bid price less than target price" do
       let(:bid_price)  { "100.00" }

@@ -14,7 +14,7 @@ class StockService
 
     results.each do |result|
       long_term_stock = long_term_stocks.find_by(stock_symbol: result.symbol)
-      long_term_stock.update_action(result)
+      long_term_stock.update_action(result.bid, result.last_trade_price)
     end
   end
 end
