@@ -11,9 +11,9 @@
 
 ## 基本工具库和框架选择
 
-* Ruby 2.4.1
+* Ruby 2.4
 * Rails 5.1
-* Redux + React.js
+* Vue.js
 * ES6 (not coffeescript)
 * Bourbon
 * Postgresql
@@ -44,6 +44,7 @@
 * foreman
 * reek
 * pry, byebug
+* better_errors
 
 ## 第三方服务
 
@@ -65,6 +66,10 @@
 ## 测试说明
 
 `bundle exec rspec`
+
+## 代码质量
+
+`rake rubycritic`
 
 ## 部署说明
 
