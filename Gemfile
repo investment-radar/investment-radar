@@ -70,6 +70,9 @@ group :development do
 
   # Annotate Rails classes with schema and routes info
   gem 'annotate', require: false
+
+  # A Ruby code quality reporter
+  gem "rubycritic", require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
