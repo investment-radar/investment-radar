@@ -6,3 +6,13 @@
 <p>
   Last modified at: 4:25pm 2017-09-15
 </p>
+
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>
+  </li>
+<% end %>
