@@ -38,6 +38,9 @@ gem 'yahoo-finance', :github => 'herval/yahoo-finance'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
 
+# A Rails engine that helps you put together a super-flexible admin dashboard
+gem "administrate"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
