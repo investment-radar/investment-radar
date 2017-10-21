@@ -8,3 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 console.log('Hello World from Webpacker')
+
+// Interpolate variable bindings
+var name = "Bob", time = "today";
+console.log(`Hello4 ${name}, how are you ${time}?`)
