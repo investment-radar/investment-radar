@@ -44,6 +44,9 @@ gem 'devise'
 # A Rails engine that helps you put together a super-flexible admin dashboard
 gem "administrate"
 
+# Easily include static pages in your Rails app.
+gem 'high_voltage', '~> 3.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
