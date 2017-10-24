@@ -52,7 +52,7 @@ group :development, :test do
   # ffaker is a rewrite of faker
   gem "ffaker"
 
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
 
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'

@@ -12,7 +12,7 @@
 #  updated_at       :datetime         not null
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :long_term_stock do
     stock_symbol "shop"
     target_price  100.5

@@ -27,8 +27,8 @@
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
-    
+
   end
 end

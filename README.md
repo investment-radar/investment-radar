@@ -18,7 +18,7 @@
 * Bourbon
 * Postgresql
 * Puma
-* Rspec, Capybara, FactoryGirl, ffaker
+* Rspec, Capybara, FactoryBot, ffaker
 
 ## Gem的选择理念
 
