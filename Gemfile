@@ -19,6 +19,9 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use Webpack to manage app-like JavaScript modules in Rails
+gem 'webpacker', '~> 3.0'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -40,6 +43,9 @@ gem 'devise'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard
 gem "administrate"
+
+# Easily include static pages in your Rails app.
+gem 'high_voltage', '~> 3.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
