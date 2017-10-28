@@ -54,14 +54,19 @@
 ## 本地开发设置
 1. 安装heroku-cli [Link](https://devcenter.heroku.com/articles/heroku-cli#macos)
 2. 安装postgres.app
-3. 创建和设置数据库
+3. 安装yarn: `brew install yarn`
+  * 如果本地没有node.js，需要安装，可以先安装nvm，然后再安装node
+  * 运行：`yarn install`
+4. 创建和设置数据库
   * `rails db:create db:migrate db:seed`
-4. 启动web server和workers `heroku local`
+5. 启动web server和workers `heroku local`
 	* 仅启动web server `heroku local web`
 	* 仅启动worker `heroku local worker`
-5. 或者安装`autoenv`,帮助自动加载.env中的环境变量,然后
+6. 或者安装`autoenv`,帮助自动加载.env中的环境变量,然后
   * 仅启动web server `rails s`
   * 仅启动worker `rake jobs:work`
+7. 启动webpack dev server方便实时编译刷新浏览器
+  * `./bin/webpack-dev-server`
 
 ## 测试说明
 
