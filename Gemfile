@@ -23,6 +23,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bourbon', git: 'https://github.com/thoughtbot/bourbon'
 # A lightweight and flexible Sass grid http://neat.bourbon.io
 gem "neat"
+# Normalize.css is an alternative to CSS resets
+gem 'normalize-rails'
+# Autoprefixer for Ruby and Ruby on Rails
+gem "autoprefixer-rails"
 
 # Use Webpack to manage app-like JavaScript modules in Rails
 gem 'webpacker', '~> 3.0'
