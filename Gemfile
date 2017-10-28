@@ -20,7 +20,9 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # A Lightweight Sass Tool Set http://bourbon.io
-gem 'bourbon'
+gem 'bourbon', git: 'https://github.com/thoughtbot/bourbon'
+# A lightweight and flexible Sass grid http://neat.bourbon.io
+gem "neat"
 
 # Use Webpack to manage app-like JavaScript modules in Rails
 gem 'webpacker', '~> 3.0'

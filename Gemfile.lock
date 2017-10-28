@@ -5,6 +5,14 @@ GIT
     yahoo-finance (2.0.0)
       json
 
+GIT
+  remote: https://github.com/thoughtbot/bourbon
+  revision: 7ef23d20624af282c5d7fd963814471593880498
+  specs:
+    bourbon (5.0.0.beta.8)
+      sass (~> 3.4)
+      thor (~> 0.19)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -75,9 +83,6 @@ GEM
     bcrypt (3.1.11-x64-mingw32)
     bcrypt (3.1.11-x86-mingw32)
     bindex (0.5.0)
-    bourbon (4.3.4)
-      sass (~> 3.4)
-      thor (~> 0.19)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.14.3)
@@ -190,6 +195,9 @@ GEM
     momentjs-rails (2.17.1)
       railties (>= 3.1)
     multi_json (1.12.1)
+    neat (2.1.0)
+      sass (~> 3.4)
+      thor (~> 0.19)
     netrc (0.11.0)
     nio4r (2.1.0)
     nio4r (2.1.0-java)
@@ -402,7 +410,7 @@ DEPENDENCIES
   administrate
   annotate
   awesome_print
-  bourbon
+  bourbon!
   byebug
   capybara (~> 2.13)
   delayed_job_active_record
@@ -413,6 +421,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mailgun-ruby (~> 1.1.6)
+  neat
   pg (~> 0.18)
   pry-byebug
   puma (~> 3.7)

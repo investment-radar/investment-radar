@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 h1 {
-  font-family: $helvetica;
   font-size: golden-ratio(14px,  1);
 
   @include margin(null 10px 3em 20vh);
