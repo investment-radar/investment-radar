@@ -1,0 +1,15 @@
+.hero {
+  $large-screen: 50em !default;
+  align-items: center;
+  background: image-url("background-image.jpg");
+  background-position: right;
+  background-size: none;
+  display: flex;
+  justify-content: center;
+  min-height: 25em;
+  padding: 2em;
+
+  background-position: left;
+  background-size: cover;
+  justify-content: flex-end;
+}

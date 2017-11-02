@@ -19,6 +19,15 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# A Lightweight Sass Tool Set http://bourbon.io
+gem 'bourbon', git: 'https://github.com/thoughtbot/bourbon'
+# A lightweight and flexible Sass grid http://neat.bourbon.io
+gem "neat"
+# Normalize.css is an alternative to CSS resets
+gem 'normalize-rails'
+# Autoprefixer for Ruby and Ruby on Rails
+gem "autoprefixer-rails"
+
 # Use Webpack to manage app-like JavaScript modules in Rails
 gem 'webpacker', '~> 3.0'
 
