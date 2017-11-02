@@ -69,7 +69,7 @@
   * `./bin/webpack-dev-server`
 
 ## 测试说明
-
+安装chrome-headless: `brew install chromedriver`
 `bundle exec rspec`
 
 ## 代码质量
