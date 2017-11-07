@@ -47,6 +47,9 @@ gem 'mailgun-ruby', '~>1.1.6'
 # A dead simple wrapper for yahoo finance quotes end-point.
 gem 'yahoo-finance', :github => 'herval/yahoo-finance'
 
+# Simple, but flexible HTTP client library, with support for multiple backends.
+gem 'faraday'
+
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
 
