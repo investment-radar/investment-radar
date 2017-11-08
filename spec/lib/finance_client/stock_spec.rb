@@ -1,5 +1,4 @@
 require 'rails_helper'
-require './lib/finance_client/stock'
 
 RSpec.describe FinanceClient::Stock do
   describe '#quote' do

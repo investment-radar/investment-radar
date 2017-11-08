@@ -49,7 +49,6 @@
 ## 第三方服务
 
 * mailgun - 邮件服务
-* yahoo finance API
 
 ## 本地开发设置
 1. 安装heroku-cli [Link](https://devcenter.heroku.com/articles/heroku-cli#macos)
