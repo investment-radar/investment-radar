@@ -11,7 +11,7 @@ class SellStockNotifier
   def call
     check_new_york_weekend
 
-    StockService.call(long_term_stocks, YahooFinance::Client.new)
+    StockService.call(long_term_stocks)
 
     if long_term_stocks.reload.any? { |stock| stock.action == LongTermStock::SELL_ACTION }
       NoticesMailer.notify_to_sell(email: email).deliver_later
