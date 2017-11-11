@@ -2,12 +2,13 @@
 #
 # Prefix Verb URI Pattern Controller#Action
 #   root GET  /           welcome#index
-# 
+#
 
 Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :long_term_stocks
+    resources :stocks
 
     root to: "users#index"
   end
