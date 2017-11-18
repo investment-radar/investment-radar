@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe StockService do
-  let!(:stock) { create(:long_term_stock, stock_symbol: 'tsla', target_price: 351.64) }
-  let(:stockes) { LongTermStock.all }
+RSpec.describe LongTermStockService do
+  let!(:long_term_stock) { create(:long_term_stock, stock_symbol: 'tsla', target_price: 351.64) }
+  let(:long_term_stockes) { LongTermStock.all }
 
-  subject { described_class.call(stockes) }
+  subject { described_class.call(long_term_stockes) }
 
-  context "when mocks the stock API" do
+  context "when mocks the stock service API" do
     before do
       allow(FinanceClient::Stock).to receive(:quote).with('tsla').and_return({
           "latestPrice" => 350.06,
@@ -17,15 +17,15 @@ RSpec.describe StockService do
     it 'updates the long term stock record' do
       expect(subject.size).to eq 1
 
-      stock.reload
+      long_term_stock.reload
 
-      expect(stock.bid_price).to eq 350.06
-      expect(stock.last_trade_price).to eq 351.09
-      expect(stock.action).to eq 'sell'
+      expect(long_term_stock.bid_price).to eq 350.06
+      expect(long_term_stock.last_trade_price).to eq 351.09
+      expect(long_term_stock.action).to eq 'sell'
     end
   end
 
-  context "when call the real stock api" do
+  context "when call the real stock service api" do
     it "updates the long term stock record" do
       expect(subject.size).to eq 1
 

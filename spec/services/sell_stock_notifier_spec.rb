@@ -6,9 +6,9 @@ RSpec.describe SellStockNotifier do
   subject { described_class.call }
 
   context "when it's weekend" do
-    it 'dose not call StockService' do
+    it 'dose not call LongTermStockService' do
       travel_to Time.find_zone('Eastern Time (US & Canada)').local(2017,10,1) do
-        expect(StockService).not_to receive(:call)
+        expect(LongTermStockService).not_to receive(:call)
       end
     end
   end
@@ -20,14 +20,14 @@ RSpec.describe SellStockNotifier do
       end
     end
 
-    it "calls StockService" do
-      expect(StockService).to receive(:call)
+    it "calls LongTermStockService" do
+      expect(LongTermStockService).to receive(:call)
 
       subject
     end
 
     describe "send email notification" do
-      before { allow(StockService).to receive(:call) }
+      before { allow(LongTermStockService).to receive(:call) }
 
       context "when there are no stocks with sell action" do
         before do

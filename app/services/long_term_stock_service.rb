@@ -1,4 +1,4 @@
-class StockService
+class LongTermStockService
   include Concerns::Service
 
   attr_reader :long_term_stocks
