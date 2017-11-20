@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :users
     resources :long_term_stocks
     resources :stocks
+    resources :buy_in_stocks
 
     root to: "users#index"
   end
