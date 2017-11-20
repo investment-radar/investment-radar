@@ -28,6 +28,8 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :stock_symbol,
     :target_price,
     :bid_price,
+    :action,
+    :updated_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

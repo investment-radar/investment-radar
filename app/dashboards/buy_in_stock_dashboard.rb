@@ -27,6 +27,8 @@ class BuyInStockDashboard < Administrate::BaseDashboard
     :stock_symbol,
     :cost_price,
     :target_price,
+    :action,
+    :updated_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
