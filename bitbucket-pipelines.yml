@@ -10,11 +10,21 @@ pipelines:
     - step:
         caches:
           - bundler
-        script: # Modify the commands below to build your repository.
+        script:
+          - apt-get update
+          - apt-get install nodejs
           - bundle install
           - rails db:create db:migrate db:seed
           - rspec
+        services:
+          - postgres
 
 definitions:
+  services:
+    postgres:
+      image: postgres
+      environment:
+        POSTGRES_DB: investment-radar_production
+        POSTGRES_USER: investment-radar
   caches:
     bundler: ./vendor
