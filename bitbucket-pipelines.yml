@@ -12,7 +12,7 @@ pipelines:
           - bundler
         script:
           - apt-get update
-          - apt-get install nodejs
+          - apt-get --assume-yes install nodejs
           - bundle install
           - rails db:create db:migrate db:seed
           - rspec
