@@ -24,7 +24,7 @@ definitions:
     postgres:
       image: postgres
       environment:
-        POSTGRES_DB: investment-radar_production
+        POSTGRES_DB: investment-radar_development
         POSTGRES_USER: investment-radar
   caches:
     bundler: ./vendor
