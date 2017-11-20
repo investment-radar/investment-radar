@@ -25,6 +25,5 @@ definitions:
       image: postgres
       environment:
         POSTGRES_DB: investment-radar_development
-        POSTGRES_USER: investment-radar
   caches:
     bundler: ./vendor
