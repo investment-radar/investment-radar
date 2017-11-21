@@ -3,7 +3,7 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: ruby:2.4.1
+image: starefossen/ruby-node
 
 pipelines:
   default:
@@ -11,10 +11,11 @@ pipelines:
         caches:
           - bundler
         script:
-          - apt-get update
-          - apt-get --assume-yes install nodejs
+          - export PGHOST=localhost
           - bundle install
           - rails db:create db:migrate db:seed
+          - yarn install
+          - RAILS_ENV=test rails webpacker:compile
           - rspec
         services:
           - postgres
@@ -24,7 +25,7 @@ definitions:
     postgres:
       image: postgres
       environment:
-        POSTGRES_DB: investment-radar_production
-        POSTGRES_USER: investment-radar
+        POSTGRES_DB: investment-radar_development
+        POSTGRES_USER: root
   caches:
     bundler: ./vendor
