@@ -75,6 +75,6 @@
 
 `rake rubycritic`
 
-## 部署说明
-
-部署到heroku
+## CI以及部署说明
+* 每次代码提交到master branch都会触发Pipelines运行测试
+* 部署到heroku
