@@ -6,19 +6,20 @@
 image: starefossen/ruby-node
 
 pipelines:
-  default:
-    - step:
-        caches:
-          - bundler
-        script:
-          - export PGHOST=localhost
-          - bundle install
-          - rails db:create db:migrate db:seed
-          - yarn install
-          - RAILS_ENV=test rails webpacker:compile
-          - rspec
-        services:
-          - postgres
+  branches:
+    master:
+      - step:
+          caches:
+            - bundler
+          script:
+            - export PGHOST=localhost
+            - bundle install
+            - rails db:create db:migrate db:seed
+            - yarn install
+            - RAILS_ENV=test rails webpacker:compile
+            - rspec
+          services:
+            - postgres
 
 definitions:
   services:
