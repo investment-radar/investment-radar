@@ -3,7 +3,7 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: mpelos/ruby-node:2.4.1
+image: starefossen/ruby-node
 
 pipelines:
   default:
@@ -11,8 +11,6 @@ pipelines:
         caches:
           - bundler
         script:
-          - apt-get update
-          - apt-get install yarn
           - export PGHOST=localhost
           - bundle install
           - rails db:create db:migrate db:seed
