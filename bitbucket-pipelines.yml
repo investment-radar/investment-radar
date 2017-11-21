@@ -13,6 +13,7 @@ pipelines:
         script:
           - apt-get update
           - apt-get --assume-yes install nodejs
+          - export PGHOST=localhost
           - bundle install
           - rails db:create db:migrate db:seed
           - rspec
