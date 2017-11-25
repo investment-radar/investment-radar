@@ -5,6 +5,20 @@
 image: starefossen/ruby-node
 
 pipelines:
+  custom: # Pipelines that are triggered manually
+    everyday-build: # The name that is displayed in the list in the Bitbucket Cloud GUI
+      - step:
+          caches:
+            - bundler
+          script:
+            - export PGHOST=localhost
+            - bundle install -j3
+            - rails db:setup
+            - yarn install
+            - RAILS_ENV=test rails webpacker:compile
+            - rspec
+          services:
+            - postgres
   branches:
     master:
       - step:
