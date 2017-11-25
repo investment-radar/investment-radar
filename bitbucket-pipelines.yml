@@ -12,7 +12,7 @@ pipelines:
             - bundler
           script:
             - export PGHOST=localhost
-            - bundle install
+            - bundle install --path vendor/bundle
             - rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
@@ -28,4 +28,4 @@ definitions:
         POSTGRES_DB: investment-radar_development
         POSTGRES_USER: root
   caches:
-    bundler: ./vendor
+    bundler: vendor/bundle
