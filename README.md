@@ -59,8 +59,8 @@
 4. 创建和设置数据库
   * `rails db:create db:migrate db:seed`
 5. 启动web server和workers `heroku local`
-	* 仅启动web server `heroku local web`
-	* 仅启动worker `heroku local worker`
+  * 仅启动web server `heroku local web`
+  * 仅启动worker `heroku local worker`
 6. 或者安装`autoenv`,帮助自动加载.env中的环境变量,然后
   * 仅启动web server `rails s`
   * 仅启动worker `rake jobs:work`
@@ -69,6 +69,7 @@
 
 ## 测试说明
 安装chrome-headless: `brew install chromedriver`
+运行测试：
 `bundle exec rspec`
 
 ## 代码质量
