@@ -1,0 +1,30 @@
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Naming/FileName:
+  Exclude:
+    - 'Gemfile'
+
+Metrics/BlockLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 3

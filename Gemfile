@@ -89,6 +89,9 @@ group :development do
   # Annotate Rails classes with schema and routes info
   gem 'annotate', require: false
 
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
+
   # A Ruby code quality reporter
   gem "rubycritic", require: false
 end
