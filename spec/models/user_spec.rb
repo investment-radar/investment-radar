@@ -32,6 +32,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it 'need add test' do
+  describe '#admin?' do
+    it 'is not a admin by default' do
+      user = build(:user)
+      expect(user.admin?).to be false
+    end
+
+    it 'is a admin' do
+      user = build(:user, admin: true)
+      expect(user.admin?).to be true
+    end
   end
 end
