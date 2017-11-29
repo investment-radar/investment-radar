@@ -6,6 +6,7 @@ AllCops:
     - 'bin/**/*'
     - 'db/**/*'
     - 'config/**/*'
+    - 'node_modules/**/*'
 
 Style/Documentation:
   Enabled: false
@@ -27,4 +28,11 @@ Metrics/BlockLength:
   Enabled: false
 
 RSpec/MultipleExpectations:
-  Max: 3
+  Max: 4
+
+RSpec/ExampleLength:
+  Max: 6
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/features/**/*'

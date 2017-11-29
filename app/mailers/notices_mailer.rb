@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NoticesMailer < ApplicationMailer
   attr_reader :stocks
 

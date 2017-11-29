@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 if defined?(Rails) && Rails.env.development?
-  require "rubycritic/rake_task"
+  require 'rubycritic/rake_task'
 
   RubyCritic::RakeTask.new do |task|
     # Glob pattern to match source files. Defaults to FileList['.'].

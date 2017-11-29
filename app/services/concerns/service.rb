@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Service Concern
 # Adds call class method, that:
 # - creates a new instance with arguments,

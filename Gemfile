@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -22,11 +23,11 @@ gem 'uglifier', '>= 1.3.0'
 # A Lightweight Sass Tool Set http://bourbon.io
 gem 'bourbon', git: 'https://github.com/thoughtbot/bourbon'
 # A lightweight and flexible Sass grid http://neat.bourbon.io
-gem "neat"
+gem 'neat'
 # Normalize.css is an alternative to CSS resets
 gem 'normalize-rails'
 # Autoprefixer for Ruby and Ruby on Rails
-gem "autoprefixer-rails"
+gem 'autoprefixer-rails'
 
 # Use Webpack to manage app-like JavaScript modules in Rails
 gem 'webpacker', '~> 3.0'
@@ -51,7 +52,7 @@ gem 'faraday'
 gem 'devise'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard
-gem "administrate"
+gem 'administrate'
 
 # Easily include static pages in your Rails app.
 gem 'high_voltage', '~> 3.0.0'
@@ -65,7 +66,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
 
   # ffaker is a rewrite of faker
-  gem "ffaker"
+  gem 'ffaker'
 
   gem 'factory_bot_rails'
 
@@ -78,30 +79,31 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-commands-rspec'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-
   # Annotate Rails classes with schema and routes info
   gem 'annotate', require: false
+  gem 'listen', '>= 3.0.5', '< 3.2'
 
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
 
   # A Ruby code quality reporter
-  gem "rubycritic", require: false
+  gem 'rubycritic', require: false
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
-  # Code coverage for Ruby 1.9+ with a powerful configuration library and automatic merging of coverage across test suites
+  # Code coverage for Ruby with a powerful configuration library and automatic merging of coverage across test suites
   gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-ruby "2.4.2"
+ruby '2.4.2'

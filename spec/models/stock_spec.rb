@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: stocks
@@ -20,4 +22,6 @@
 require 'rails_helper'
 
 RSpec.describe Stock, type: :model do
+  it 'need add test' do
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: buy_in_stocks
@@ -13,9 +15,9 @@
 
 FactoryBot.define do
   factory :buy_in_stock do
-    stock_symbol "MyString"
+    stock_symbol 'MyString'
     cost_price 1.5
     target_price 1.5
-    action "MyString"
+    action 'MyString'
   end
 end

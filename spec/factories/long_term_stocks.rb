@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: long_term_stocks
@@ -14,7 +16,7 @@
 
 FactoryBot.define do
   factory :long_term_stock do
-    stock_symbol "shop"
-    target_price  100.5
+    stock_symbol 'shop'
+    target_price 100.5
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: stocks
@@ -19,10 +21,10 @@
 
 FactoryBot.define do
   factory :stock do
-    symbol "MyString"
-    company_name "MyString"
-    description "MyText"
-    sector "MyString"
-    note "MyText"
+    symbol 'MyString'
+    company_name 'MyString'
+    description 'MyText'
+    sector 'MyString'
+    note 'MyText'
   end
 end

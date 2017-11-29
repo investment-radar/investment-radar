@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: buy_in_stocks
@@ -14,4 +16,6 @@
 require 'rails_helper'
 
 RSpec.describe BuyInStock, type: :model do
+  it 'need add test' do
+  end
 end

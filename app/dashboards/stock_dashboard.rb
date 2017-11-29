@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class StockDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -15,7 +17,7 @@ class StockDashboard < Administrate::BaseDashboard
     sector: Field::String,
     note: Field::Text,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,7 +29,7 @@ class StockDashboard < Administrate::BaseDashboard
     :id,
     :symbol,
     :company_name,
-    :sector,
+    :sector
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -40,7 +42,7 @@ class StockDashboard < Administrate::BaseDashboard
     :sector,
     :note,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -51,7 +53,7 @@ class StockDashboard < Administrate::BaseDashboard
     :company_name,
     :description,
     :sector,
-    :note,
+    :note
   ].freeze
 
   # Overwrite this method to customize how stocks are displayed
