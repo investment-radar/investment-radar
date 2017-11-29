@@ -15,8 +15,6 @@ if Rails.env.development? || Rails.env.test?
 
   desc 'Run all code quality checks'
   task quality: %w[quality:rubocop quality:reek]
-
-  # task default: %w[:quality]
 end
 
 task default: %w[quality:rubocop quality:reek]
