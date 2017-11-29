@@ -83,6 +83,7 @@ group :development do
   gem 'annotate', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
 
+  gem 'reek', require: false
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
 
