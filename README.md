@@ -72,7 +72,10 @@
 `bundle exec rspec`
 
 ## 代码质量
+### 运行 rubocop 和 reek 代码检查
+`rake quality`
 
+### rubycritic report
 `rake rubycritic`
 
 ## CI以及部署说明
