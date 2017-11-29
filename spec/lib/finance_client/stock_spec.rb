@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe FinanceClient::Stock do
@@ -6,8 +8,8 @@ RSpec.describe FinanceClient::Stock do
 
     it { is_expected.to be_kind_of Hash }
 
-    it { is_expected.to include 'symbol' => 'TEAM'}
+    it { is_expected.to include 'symbol' => 'TEAM' }
 
-    it { expect(body["latestPrice"]).to be_kind_of Float }
+    it { expect(body['latestPrice']).to be_kind_of Float }
   end
 end

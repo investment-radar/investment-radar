@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: long_term_stocks
@@ -21,27 +23,27 @@ RSpec.describe LongTermStock, type: :model do
     let(:stock) { create(:long_term_stock, target_price: 100.5) }
     let(:last_trade_price) { 90.5 }
 
-    context "when bid price less than target price" do
+    context 'when bid price less than target price' do
       let(:bid_price) { 100.00 }
 
-      it "sets action to sell and sets bid_price and last_trade_price" do
+      it 'sets action to sell and sets bid_price and last_trade_price' do
         expect(stock.action).to eq 'sell'
         expect(stock.bid_price).to eq bid_price
         expect(stock.last_trade_price).to eq 90.5
       end
     end
 
-    context "when bid price great than target price" do
+    context 'when bid price great than target price' do
       let(:bid_price) { 101.00 }
 
-      it "sets action to hold and and sets bid_price and last_trade_price" do
+      it 'sets action to hold and and sets bid_price and last_trade_price' do
         expect(stock.action).to eq 'hold'
         expect(stock.bid_price).to eq bid_price
         expect(stock.last_trade_price).to eq 90.5
       end
     end
 
-    context "when bid price is nil" do
+    context 'when bid price is nil' do
       let(:bid_price) { nil }
 
       it 'does not set the action, bid_price and last_trade_price' do
@@ -52,31 +54,33 @@ RSpec.describe LongTermStock, type: :model do
     end
   end
 
-  describe "when alread has the bid_price, action and last_trade_price" do
-    let(:stock) { create(:long_term_stock, target_price: 100.5, bid_price: 101.5, last_trade_price: 101.0, action: 'hold') }
+  describe 'when alread has the bid_price, action and last_trade_price' do
+    let(:stock) do
+      create(:long_term_stock, target_price: 100.5, bid_price: 101.5, last_trade_price: 101.0, action: 'hold')
+    end
     let(:last_trade_price) { 101.3 }
 
-    context "when bid price less than target price" do
+    context 'when bid price less than target price' do
       let(:bid_price) { 100.00 }
 
-      it "sets action to sell and updates bid_price and last_trade_price" do
+      it 'sets action to sell and updates bid_price and last_trade_price' do
         expect(stock.action).to eq 'sell'
         expect(stock.bid_price).to eq bid_price
         expect(stock.last_trade_price).to eq 101.3
       end
     end
 
-    context "when bid price great than target price" do
+    context 'when bid price great than target price' do
       let(:bid_price) { 101.00 }
 
-      it "sets action to hold and and updates bid_price and last_trade_price" do
+      it 'sets action to hold and and updates bid_price and last_trade_price' do
         expect(stock.action).to eq 'hold'
         expect(stock.bid_price).to eq bid_price
         expect(stock.last_trade_price).to eq 101.3
       end
     end
 
-    context "when bid price is nil" do
+    context 'when bid price is nil' do
       let(:bid_price) { nil }
 
       it 'does not set the action, bid_price and last_trade_price' do

@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class UserDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -23,7 +25,7 @@ class UserDashboard < Administrate::BaseDashboard
     unlock_token: Field::String,
     locked_at: Field::DateTime,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -35,7 +37,7 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :email,
     :last_sign_in_at,
-    :sign_in_count,
+    :sign_in_count
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -56,7 +58,7 @@ class UserDashboard < Administrate::BaseDashboard
     :unlock_token,
     :locked_at,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -75,7 +77,7 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_ip,
     :failed_attempts,
     :unlock_token,
-    :locked_at,
+    :locked_at
   ].freeze
 
   # Overwrite this method to customize how users are displayed

@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class LongTermStockDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -15,7 +17,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     last_trade_price: Field::Number.with_options(decimals: 2),
     action: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,7 +31,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :target_price,
     :bid_price,
     :action,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -42,7 +44,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :last_trade_price,
     :action,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -53,7 +55,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :target_price,
     :bid_price,
     :last_trade_price,
-    :action,
+    :action
   ].freeze
 
   # Overwrite this method to customize how long term stocks are displayed

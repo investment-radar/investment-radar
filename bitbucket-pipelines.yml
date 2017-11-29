@@ -16,7 +16,7 @@ pipelines:
             - rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
-            - rspec
+            - rake
           services:
             - postgres
   branches:
@@ -30,7 +30,7 @@ pipelines:
             - rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
-            - rspec
+            - rake
           services:
             - postgres
 

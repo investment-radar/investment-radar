@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: long_term_stocks
@@ -13,17 +15,13 @@
 #
 
 class LongTermStock < ApplicationRecord
-  SELL_ACTION = "sell".freeze
-  HOLD_ACTION = "hold".freeze
+  SELL_ACTION = 'sell'
+  HOLD_ACTION = 'hold'
 
   def update_action(bid_price, last_trade_price)
     return unless bid_price.present?
 
-    if bid_price < target_price
-      action = SELL_ACTION
-    else
-      action = HOLD_ACTION
-    end
+    action = bid_price < target_price ? SELL_ACTION : HOLD_ACTION
 
     update(action: action, bid_price: bid_price, last_trade_price: last_trade_price)
   end

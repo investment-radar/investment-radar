@@ -1,6 +1,8 @@
-desc "This task is called by the Heroku scheduler add-on"
+# frozen_string_literal: true
 
-task :send_reminders => :environment do
+desc 'This task is called by the Heroku scheduler add-on'
+
+task send_reminders: :environment do
   SellStockNotifier.call
-  puts "Call SellStockNotifier!"
+  puts 'Call SellStockNotifier!'
 end

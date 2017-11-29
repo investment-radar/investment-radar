@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class BuyInStockDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -14,7 +16,7 @@ class BuyInStockDashboard < Administrate::BaseDashboard
     target_price: Field::Number.with_options(decimals: 2),
     action: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,7 +30,7 @@ class BuyInStockDashboard < Administrate::BaseDashboard
     :cost_price,
     :target_price,
     :action,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -40,7 +42,7 @@ class BuyInStockDashboard < Administrate::BaseDashboard
     :target_price,
     :action,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -50,7 +52,7 @@ class BuyInStockDashboard < Administrate::BaseDashboard
     :stock_symbol,
     :cost_price,
     :target_price,
-    :action,
+    :action
   ].freeze
 
   # Overwrite this method to customize how buy in stocks are displayed
