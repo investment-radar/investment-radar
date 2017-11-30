@@ -6,7 +6,6 @@ module FinanceClient
     API_VERSION = '1.0'
 
     class << self
-      # TODO: :reek:NilCheck
       def quote(symbol, params = nil)
         quote_url = "/#{API_VERSION}/stock/#{symbol}/quote"
         response = connection.get quote_url, params
