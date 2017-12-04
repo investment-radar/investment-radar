@@ -68,6 +68,7 @@ group :development, :test do
   # ffaker is a rewrite of faker
   gem 'ffaker'
 
+  # A library for setting up Ruby objects as test data
   gem 'factory_bot_rails'
 
   # Adds support for Capybara system testing and selenium driver
@@ -81,9 +82,17 @@ end
 group :development do
   # Annotate Rails classes with schema and routes info
   gem 'annotate', require: false
+
+  # help to kill N+1 queries and unused eager loading
+  gem 'bullet'
+
+  # The Listen gem listens to file modifications and notifies you about the changes.
   gem 'listen', '>= 3.0.5', '< 3.2'
 
+  # Code smell detector for Ruby
   gem 'reek', require: false
+
+  # A Ruby static code analyzer, based on the community Ruby style guide
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
 
