@@ -24,3 +24,5 @@ coverage
 /public/packs
 /public/packs-test
 .DS_Store
+
+.vscode
