@@ -13,7 +13,7 @@ pipelines:
           script:
             - export PGHOST=localhost
             - bundle install -j3
-            - rails db:setup
+            - bundle exec rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
             - bundle exec rspec
@@ -29,7 +29,7 @@ pipelines:
           script:
             - export PGHOST=localhost
             - bundle install -j3
-            - rails db:setup
+            - bundle exec rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
             - bundle exec rspec
