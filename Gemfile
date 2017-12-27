@@ -40,6 +40,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 
 # ActiveRecord backend integration for DelayedJob 3.0+
+gem 'delayed_job', git: 'https://github.com/collectiveidea/delayed_job'
 gem 'delayed_job_active_record'
 
 # Mailgun's Official Ruby Library
