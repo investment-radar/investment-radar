@@ -50,7 +50,7 @@ gem 'mailgun-ruby', '~>1.1.6'
 gem 'faraday'
 
 # Flexible authentication solution for Rails with Warden.
-gem 'devise'
+gem 'devise', git: 'https://github.com/plataformatec/devise'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard
 gem 'administrate'
