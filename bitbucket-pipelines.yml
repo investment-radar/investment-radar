@@ -13,7 +13,7 @@ pipelines:
           script:
             - ruby --version
             - export PGHOST=localhost
-            - bundle install --jobs=2 --without=development
+            - bundle install --jobs=2
             - bundle exec rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
@@ -30,7 +30,7 @@ pipelines:
           script:
             - ruby --version
             - export PGHOST=localhost
-            - bundle install --jobs=2 --without=development
+            - bundle install --jobs=2
             - bundle exec rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
