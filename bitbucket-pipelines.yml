@@ -2,7 +2,7 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: starefossen/ruby-node
+image: starefossen/ruby-node:2-6
 
 pipelines:
   custom: # Pipelines that are triggered manually
@@ -11,8 +11,9 @@ pipelines:
           caches:
             - bundler
           script:
+            - ruby --version
             - export PGHOST=localhost
-            - bundle install -j3
+            - bundle install --jobs=2 --without=development
             - bundle exec rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
@@ -27,8 +28,9 @@ pipelines:
           caches:
             - bundler
           script:
+            - ruby --version
             - export PGHOST=localhost
-            - bundle install -j3
+            - bundle install --jobs=2 --without=development
             - bundle exec rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
