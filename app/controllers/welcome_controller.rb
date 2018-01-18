@@ -3,6 +3,7 @@
 class WelcomeController < ApplicationController
   # :nocov:
   def index
+    logger.info "Welcome page!"
     render :index
   end
   # :nocov:
