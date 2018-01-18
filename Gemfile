@@ -76,6 +76,11 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 
+  # Logging
+  # Lograge - Taming Rails' Default Request Logging
+  gem 'lograge'
+  gem 'logstash-event'
+
   # Pretty print your Ruby objects with style -- in full color and with proper indentation
   gem 'awesome_print', require: 'ap'
 end
