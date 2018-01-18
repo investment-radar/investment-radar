@@ -58,6 +58,11 @@ gem 'administrate'
 # Easily include static pages in your Rails app.
 gem 'high_voltage', '~> 3.0.0'
 
+# Logging
+# Lograge - Taming Rails' Default Request Logging
+gem 'lograge'
+gem 'logstash-event'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -75,11 +80,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-
-  # Logging
-  # Lograge - Taming Rails' Default Request Logging
-  gem 'lograge'
-  gem 'logstash-event'
 
   # Pretty print your Ruby objects with style -- in full color and with proper indentation
   gem 'awesome_print', require: 'ap'
