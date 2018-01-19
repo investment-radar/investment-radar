@@ -20,7 +20,7 @@ module FinanceClient
           faraday.adapter Faraday.default_adapter
           # faraday.response :logger # for debug
         end
-        conn.headers['Authorization'] = 'Token sZNZRxtUynovTLZxKeDDatjH'
+        conn.headers['Authorization'] = "Token #{Rails.application.secrets.decision_engine_token}"
 
         conn
       end
