@@ -11,7 +11,7 @@ class LongTermStockService
 
   def call
     long_term_stocks.each do |long_term_stock|
-      result = FinanceClient::Stock.quote(long_term_stock.stock_symbol)
+      result = FinanceClient::DecisionEngine.long_term_stock(long_term_stock.stock_symbol)
 
       update_long_term_stock(long_term_stock, result) if result.present?
     end
@@ -20,6 +20,6 @@ class LongTermStockService
   private
 
   def update_long_term_stock(long_term_stock, result)
-    long_term_stock.update_action(result['latestPrice'], result['previousClose'])
+    long_term_stock.update(action: result['decision'])
   end
 end
