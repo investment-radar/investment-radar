@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   # TODO: :reek:NilCheck
   def set_raven_context
-    Raven.user_context(session_id: session[:session_id], user_id: current_user&.id) # or anything else in session
+    Raven.user_context(id: current_user&.id, email: current_user&.email) # or anything else in session
     Raven.extra_context(params: params.to_unsafe_h, url: request.url)
   end
 end
