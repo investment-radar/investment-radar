@@ -62,6 +62,8 @@ gem 'high_voltage', '~> 3.0.0'
 # Lograge - Taming Rails' Default Request Logging
 gem 'lograge'
 gem 'logstash-event'
+# Raven is a Ruby client for Sentry Error Monitoring
+gem 'sentry-raven'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
