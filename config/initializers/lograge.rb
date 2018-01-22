@@ -11,6 +11,4 @@ Rails.application.configure do
       user_id: event.payload[:user_id]
     }
   end
-
-  config.lograge.formatter = Lograge::Formatters::Logstash.new
 end
