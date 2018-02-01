@@ -21,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # A Lightweight Sass Tool Set http://bourbon.io
-gem 'bourbon', git: 'https://github.com/thoughtbot/bourbon'
+gem 'bourbon'
 # A lightweight and flexible Sass grid http://neat.bourbon.io
 gem 'neat'
 # Normalize.css is an alternative to CSS resets
