@@ -71,7 +71,7 @@ group :development, :test do
   # Adds step-by-step debugging and stack navigation capabilities to pry using byebug.
   gem 'pry-byebug'
 
-  gem 'rspec-rails', '~> 3.6'
+  gem 'rspec-rails', '~> 3.7.2'
 
   # ffaker is a rewrite of faker
   gem 'ffaker'
