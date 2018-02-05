@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe LongTermStockService do
-  subject(:stocks_result) { described_class.call(long_term_stockes) }
-
   let!(:long_term_stock) { create(:long_term_stock, stock_symbol: 'tsla') }
   let(:long_term_stockes) { LongTermStock.all }
 
@@ -14,6 +12,8 @@ RSpec.describe LongTermStockService do
     end
 
     it 'updates the long term stock record' do
+      stocks_result = described_class.call(long_term_stockes)
+      expect(FinanceClient::DecisionEngine).to have_received(:long_term_stock).with('tsla').once
       expect(stocks_result.size).to eq 1
 
       long_term_stock.reload
@@ -25,5 +25,4 @@ RSpec.describe LongTermStockService do
   context 'when call the fake stock service api' do
     it 'updates the long term stock record'
   end
-
 end
