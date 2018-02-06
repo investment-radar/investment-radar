@@ -10,7 +10,12 @@ require 'rspec/rails'
 
 require 'support/factory_bot'
 
+Dir[Rails.root.join('spec/support/helpers/**/*.rb')].sort.each { |f| require f }
+
+require 'webmock/rspec'
+
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'rspec/json_expectations'
 
 # configure Capybara with Chrome headless
 require 'selenium/webdriver'
@@ -77,4 +82,6 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.include StockApiHelpers, :api_client
 end

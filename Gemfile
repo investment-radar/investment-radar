@@ -120,6 +120,10 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-json_expectations'
+  # Library for stubbing and setting expectations on HTTP requests in Ruby.
+  gem 'webmock'
+
   # Code coverage for Ruby with a powerful configuration library and automatic merging of coverage across test suites
   gem 'simplecov', require: false
 end
