@@ -17,4 +17,6 @@
 class LongTermStock < ApplicationRecord
   SELL_ACTION = 'sell'
   HOLD_ACTION = 'hold'
+
+  scope :hold, -> { where(action: HOLD_ACTION) }
 end
