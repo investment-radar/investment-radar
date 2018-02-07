@@ -13,7 +13,6 @@ class BuyInStockDashboard < Administrate::BaseDashboard
     id: Field::Number,
     stock_symbol: Field::String,
     cost_price: Field::Number.with_options(decimals: 2),
-    target_price: Field::Number.with_options(decimals: 2),
     action: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -28,7 +27,6 @@ class BuyInStockDashboard < Administrate::BaseDashboard
     :id,
     :stock_symbol,
     :cost_price,
-    :target_price,
     :action,
     :updated_at
   ].freeze
@@ -39,7 +37,6 @@ class BuyInStockDashboard < Administrate::BaseDashboard
     :id,
     :stock_symbol,
     :cost_price,
-    :target_price,
     :action,
     :created_at,
     :updated_at
@@ -51,7 +48,6 @@ class BuyInStockDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :stock_symbol,
     :cost_price,
-    :target_price,
     :action
   ].freeze
 
