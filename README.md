@@ -11,7 +11,7 @@
 
 ## 基本工具库和框架选择
 
-* Ruby 2.4
+* Ruby 2.5
 * Rails 5.1 + Webpacker3.0
 * Vue.js
 * ES6 (not coffeescript)
