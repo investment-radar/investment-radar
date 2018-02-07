@@ -120,6 +120,7 @@ group :development do
 end
 
 group :test do
+  # Set of matchers and helpers to allow you test your APIs responses
   gem 'rspec-json_expectations'
   # Library for stubbing and setting expectations on HTTP requests in Ruby.
   gem 'webmock'
