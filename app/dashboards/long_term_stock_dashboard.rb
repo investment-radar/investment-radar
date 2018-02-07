@@ -12,12 +12,10 @@ class LongTermStockDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     stock_symbol: Field::String,
-    target_price: Field::Number.with_options(decimals: 2),
-    bid_price: Field::Number.with_options(decimals: 2),
-    last_trade_price: Field::Number.with_options(decimals: 2),
     action: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
+    notified_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,9 +26,8 @@ class LongTermStockDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :stock_symbol,
-    :target_price,
-    :bid_price,
     :action,
+    :notified_at,
     :updated_at
   ].freeze
 
@@ -39,10 +36,8 @@ class LongTermStockDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :stock_symbol,
-    :target_price,
-    :bid_price,
-    :last_trade_price,
     :action,
+    :notified_at,
     :created_at,
     :updated_at
   ].freeze
@@ -52,9 +47,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :stock_symbol,
-    :target_price,
-    :bid_price,
-    :last_trade_price,
+    :notified_at,
     :action
   ].freeze
 
