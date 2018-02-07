@@ -48,4 +48,4 @@ definitions:
         POSTGRES_DB: investment-radar_development
         POSTGRES_USER: root
   caches:
-    bundler: ./vendor
+    bundler: vendor/bundle
