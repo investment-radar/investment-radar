@@ -12,6 +12,7 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'node_modules/**/*'
+    - 'vendor/bundle/**/*'
 
 Style/Documentation:
   Enabled: false
