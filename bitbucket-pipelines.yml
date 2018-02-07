@@ -10,10 +10,11 @@ pipelines:
       - step:
           caches:
             - bundler
+            - node
           script:
             - ruby --version
             - export PGHOST=localhost
-            - bundle install --jobs=2
+            - bundle install --jobs=2 --path vendor/bundle
             - bundle exec rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
@@ -27,10 +28,11 @@ pipelines:
       - step:
           caches:
             - bundler
+            - node
           script:
             - ruby --version
             - export PGHOST=localhost
-            - bundle install --jobs=2
+            - bundle install --jobs=2 --path vendor/bundle
             - bundle exec rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
