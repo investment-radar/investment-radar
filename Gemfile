@@ -46,6 +46,9 @@ gem 'delayed_job_active_record'
 # Mailgun's Official Ruby Library
 gem 'mailgun-ruby', '~>1.1.6'
 
+# A Ruby gem for communicating with the Twilio API and generating TwiML
+gem 'twilio-ruby'
+
 # Simple, but flexible HTTP client library, with support for multiple backends.
 gem 'faraday'
 
