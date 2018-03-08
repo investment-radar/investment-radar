@@ -28,17 +28,10 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
-
-# :nocov:
 class User < ApplicationRecord
-  # :nocov:
   # Include default devise modules. Others available are:
   # :confirmable, :registerable,  and :omniauthable
-  # :nocov:
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable, :lockable
-  # :nocov:
-  # :nocov:
 end
-# :nocov:

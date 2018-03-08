@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 if ENV['COV'] != 'NO'
-  require 'simplecov'
-
   SimpleCov.minimum_coverage 95
-  SimpleCov.minimum_coverage_by_file 90
+  # SimpleCov.minimum_coverage_by_file 90
   SimpleCov.refuse_coverage_drop
 
   SimpleCov.start 'rails' do
