@@ -2,15 +2,19 @@
 
 if ENV['COV'] != 'NO'
   require 'simplecov'
+
+  SimpleCov.minimum_coverage 95
+  SimpleCov.minimum_coverage_by_file 90
+  SimpleCov.refuse_coverage_drop
+
   SimpleCov.start 'rails' do
     add_filter 'app/controllers/admin'
     add_filter 'app/dashboards'
     add_filter 'app/channels/application_cable'
+    add_filter 'app/models/application_record.rb'
+    add_filter 'app/jobs/application_job.rb'
 
     add_group  'Services', 'app/services'
-
-    # minimum_coverage 90
-    refuse_coverage_drop
   end
 end
 
