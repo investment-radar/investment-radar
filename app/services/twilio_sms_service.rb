@@ -1,13 +1,13 @@
+# frozen_string_literal: true
+
 class TwilioSmsService
   include Concerns::Service
 
-  attr_reader :client, :message, :phone_number
+  attr_reader :message, :phone_number
 
   def initialize(message, phone_number)
     @message = message
     @phone_number = phone_number
-
-    build_client
   end
 
   def call
@@ -16,17 +16,9 @@ class TwilioSmsService
 
   private
 
-  def build_client
-    account_sid = Rails.application.secrets.twilio_account_sid
-    auth_token = Rails.application.secrets.twilio_auth_token
-
-    @client ||= Twilio::REST::Client.new account_sid, auth_token
-  end
-
   def send_message
-    from = '+61439745451'
-    client.messages.create(
-      from: from,
+    TwilioClient.build.messages.create(
+      from: TwilioClient::FROM_NUMBER,
       to: phone_number,
       body: message
     )
