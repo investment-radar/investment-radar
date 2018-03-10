@@ -30,7 +30,7 @@ gem 'normalize-rails'
 gem 'autoprefixer-rails'
 
 # Use Webpack to manage app-like JavaScript modules in Rails
-gem 'webpacker', '~> 3.0'
+gem 'webpacker', '~> 3.3'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
