@@ -30,7 +30,7 @@ gem 'normalize-rails'
 gem 'autoprefixer-rails'
 
 # Use Webpack to manage app-like JavaScript modules in Rails
-gem 'webpacker', '~> 3.0'
+gem 'webpacker', '~> 3.3'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -45,6 +45,9 @@ gem 'delayed_job_active_record'
 
 # Mailgun's Official Ruby Library
 gem 'mailgun-ruby', '~>1.1.6'
+
+# A Ruby gem for communicating with the Twilio API and generating TwiML
+gem 'twilio-ruby'
 
 # Simple, but flexible HTTP client library, with support for multiple backends.
 gem 'faraday'
