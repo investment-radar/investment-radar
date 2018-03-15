@@ -19,7 +19,7 @@ class TwilioCallService
     TwilioClient.build.calls.create(
       to: phone_number,
       from: TwilioClient::FROM_NUMBER,
-      url: 'https://quiet-beyond-43735.herokuapp.com/voice.xml',
+      url: TwilioClient::VOICE_URL,
       method: 'GET'
     )
   end

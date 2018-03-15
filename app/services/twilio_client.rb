@@ -2,6 +2,7 @@
 
 module TwilioClient
   FROM_NUMBER = '+61488811321'
+  VOICE_URL = 'https://quiet-beyond-43735.herokuapp.com/voice.xml'
 
   def self.build
     secrets = Rails.application.secrets

@@ -39,7 +39,7 @@ RSpec/MultipleExpectations:
   Max: 4
 
 RSpec/ExampleLength:
-  Max: 10
+  Max: 12
 
 RSpec/DescribeClass:
   Exclude:
