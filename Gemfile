@@ -106,11 +106,11 @@ group :development do
   gem 'reek', require: false
 
   # A Ruby static code analyzer, based on the community Ruby style guide
-  gem 'rubocop', require: false
-  gem 'rubocop-rspec', require: false
+  gem 'rubocop', '~> 0.52.1', require: false
+  gem 'rubocop-rspec', '~> 1.22.2', require: false
 
   # A Ruby code quality reporter
-  gem 'rubycritic', require: false
+  gem 'rubycritic', '~> 3.3.0', require: false
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
