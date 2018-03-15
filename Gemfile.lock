@@ -503,5 +503,8 @@ DEPENDENCIES
   webpacker (~> 3.3)
   zero_downtime_migrations
 
+RUBY VERSION
+   ruby 2.5.0p0
+
 BUNDLED WITH
    1.16.1
