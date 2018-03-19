@@ -5,7 +5,9 @@ require 'rails_helper'
 RSpec.describe SellStockNotifier do
   include ActiveSupport::Testing::TimeHelpers
 
-  before { allow(LongTermStockService).to receive(:call) }
+  let(:stocks_to_notify) { [] }
+
+  before { allow(LongTermStockService).to receive(:call).and_return(stocks_to_notify) }
 
   context "when it's weekend" do
     it 'dose not call LongTermStockService' do
@@ -33,11 +35,6 @@ RSpec.describe SellStockNotifier do
     end
 
     context 'when there are no stocks with sell action' do
-      before do
-        create(:long_term_stock, stock_symbol: 'tsla', action: 'hold')
-        create(:long_term_stock, stock_symbol: 'shop', action: 'hold')
-      end
-
       it 'does not call NoticesMailer.notify_to_sell' do
         allow(NoticesMailer).to receive(:notify_to_sell)
         described_class.call
@@ -46,10 +43,8 @@ RSpec.describe SellStockNotifier do
     end
 
     context 'when there is one stock with sell action' do
-      before do
-        create(:long_term_stock, stock_symbol: 'tsla', action: 'sell')
-        create(:long_term_stock, stock_symbol: 'shop', action: 'hold')
-      end
+      let!(:long_term_stock) { create(:long_term_stock, stock_symbol: 'tsla', action: 'sell') }
+      let(:stocks_to_notify) { LongTermStock.to_notify }
 
       it 'calls NoticesMailer.notify_to_sell' do
         message_delivery = instance_double(ActionMailer::MessageDelivery)
@@ -60,6 +55,8 @@ RSpec.describe SellStockNotifier do
         described_class.call
 
         expect(NoticesMailer).to have_received(:notify_to_sell)
+
+        expect(long_term_stock.reload.notified_at).not_to be_nil
       end
     end
   end

@@ -17,6 +17,14 @@ require 'webmock/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'rspec/json_expectations'
 
+require 'shoulda/matchers'
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
 # configure Capybara with Chrome headless
 require 'selenium/webdriver'
 Capybara.register_driver :chrome do |app|

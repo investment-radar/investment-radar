@@ -16,5 +16,14 @@ class LongTermStock < ApplicationRecord
   SELL_ACTION = 'sell'
   HOLD_ACTION = 'hold'
 
-  scope :hold, -> { where(action: HOLD_ACTION) }
+  validates :action, inclusion: { in: [SELL_ACTION, HOLD_ACTION] }
+
+  scope :to_hold, -> { where(action: HOLD_ACTION) }
+  scope :to_sell, -> { where(action: SELL_ACTION) }
+
+  scope :to_notify, -> { to_sell.where(notified_at: nil) }
+
+  def need_notify?
+    action == LongTermStock::SELL_ACTION && notified_at.blank?
+  end
 end

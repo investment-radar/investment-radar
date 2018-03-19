@@ -3,7 +3,7 @@
 class SellStockNotifier
   include Concerns::Service
 
-  attr_reader :long_term_stocks, :email
+  attr_reader :long_term_stocks, :email, :stocks_to_notify
 
   def initialize
     @long_term_stocks = LongTermStock.all
@@ -15,9 +15,9 @@ class SellStockNotifier
       Rails.logger.info "It's weekend, no trade."
       return
     end
-    LongTermStockService.call(long_term_stocks)
+    @stocks_to_notify = LongTermStockService.call(long_term_stocks)
 
-    NoticesMailer.notify_to_sell(email: email).deliver_later if any_to_sell?
+    send_notifications
   end
 
   private
@@ -27,7 +27,11 @@ class SellStockNotifier
     return true if now.saturday? || now.sunday?
   end
 
-  def any_to_sell?
-    long_term_stocks.reload.any? { |stock| stock.action == LongTermStock::SELL_ACTION }
+  def send_notifications
+    return unless stocks_to_notify.any?
+
+    NoticesMailer.notify_to_sell(email: email).deliver_later
+
+    stocks_to_notify.update(notified_at: Time.current)
   end
 end
