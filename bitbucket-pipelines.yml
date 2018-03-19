@@ -15,9 +15,9 @@ pipelines:
             - ruby --version
             - export PGHOST=localhost
             - bundle install --jobs=2 --path vendor/bundle
-            - bundle exec rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
+            - bundle exec rails db:setup
             - COV=YES bundle exec rspec
             - bundle exec rake quality:rubocop
             - bundle exec rake quality:reek
@@ -33,9 +33,9 @@ pipelines:
             - ruby --version
             - export PGHOST=localhost
             - bundle install --jobs=2 --path vendor/bundle
-            - bundle exec rails db:setup
             - yarn install
             - RAILS_ENV=test rails webpacker:compile
+            - bundle exec rails db:setup
             - COV=YES bundle exec rspec
             - bundle exec rake quality:rubocop
             - bundle exec rake quality:reek
