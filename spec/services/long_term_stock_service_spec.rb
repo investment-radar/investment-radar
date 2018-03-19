@@ -3,18 +3,22 @@
 require 'rails_helper'
 
 RSpec.describe LongTermStockService do
+  subject(:stocks_to_notify) { described_class.call(long_term_stockes) }
+
   let!(:long_term_stock) { create(:long_term_stock, stock_symbol: 'tsla') }
   let(:long_term_stockes) { LongTermStock.all }
 
-  context 'when mocks the stock service API' do
-    before do
-      allow(FinanceClient::DecisionEngine).to receive(:long_term_stock).with('tsla').and_return('decision' => 'hold')
-    end
+  before do
+    allow(FinanceClient::DecisionEngine).to receive(:long_term_stock).with('tsla').and_return('decision' => decision)
+  end
 
-    it 'updates the long term stock record' do
-      stocks_result = described_class.call(long_term_stockes)
+  context 'when api return hold decision' do
+    let(:decision) { 'hold' }
+
+    it 'updates the long term stock record to hold' do
+      expect(stocks_to_notify.size).to eq 0
+
       expect(FinanceClient::DecisionEngine).to have_received(:long_term_stock).with('tsla').once
-      expect(stocks_result.size).to eq 1
 
       long_term_stock.reload
 
@@ -22,7 +26,17 @@ RSpec.describe LongTermStockService do
     end
   end
 
-  context 'when call the fake stock service api' do
-    it 'updates the long term stock record'
+  context 'when api return sold decision' do
+    let(:decision) { 'sell' }
+
+    it 'updates the long term stock record to sell' do
+      expect(stocks_to_notify.size).to eq 1
+
+      expect(FinanceClient::DecisionEngine).to have_received(:long_term_stock).with('tsla').once
+
+      long_term_stock.reload
+
+      expect(long_term_stock.action).to eq 'sell'
+    end
   end
 end

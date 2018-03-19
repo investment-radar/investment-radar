@@ -78,6 +78,9 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.7.2'
 
+  # Collection of testing matchers extracted from Shoulda
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers'
+
   # ffaker is a rewrite of faker
   gem 'ffaker'
 

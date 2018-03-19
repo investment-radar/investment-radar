@@ -15,11 +15,13 @@ class LongTermStockService
 
       update_long_term_stock(long_term_stock, result) if result.present?
     end
+
+    LongTermStock.to_notify
   end
 
   private
 
   def update_long_term_stock(long_term_stock, result)
-    long_term_stock.update(action: result['decision'])
+    long_term_stock.update!(action: result['decision'])
   end
 end
