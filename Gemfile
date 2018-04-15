@@ -42,7 +42,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 
 # ActiveRecord backend integration for DelayedJob 3.0+
-gem 'delayed_job', git: 'https://github.com/collectiveidea/delayed_job'
+gem 'delayed_job', github: 'collectiveidea/delayed_job'
 gem 'delayed_job_active_record'
 
 # Mailgun's Official Ruby Library
@@ -55,7 +55,7 @@ gem 'twilio-ruby'
 gem 'faraday'
 
 # Flexible authentication solution for Rails with Warden.
-gem 'devise', git: 'https://github.com/plataformatec/devise'
+gem 'devise', github: 'plataformatec/devise'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard
 gem 'administrate'
@@ -79,7 +79,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7.2'
 
   # Collection of testing matchers extracted from Shoulda
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 
   # ffaker is a rewrite of faker
   gem 'ffaker'
