@@ -8,4 +8,4 @@
 // layout file, like app/views/layouts/application.html.erb
 
 console.log('Hello World from Webpacker')
-console.log('Version 4')
+console.log('Version 5')
