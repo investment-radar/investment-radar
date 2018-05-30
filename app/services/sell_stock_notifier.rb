@@ -7,7 +7,7 @@ class SellStockNotifier
 
   def initialize
     @long_term_stocks = LongTermStock.all
-    @email = 'bing708@gmail.com'
+    @email = 'bing.xie78@gmail.com'
   end
 
   def call

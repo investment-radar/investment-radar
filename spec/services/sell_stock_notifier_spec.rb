@@ -49,7 +49,7 @@ RSpec.describe SellStockNotifier do
       it 'calls NoticesMailer.notify_to_sell' do
         message_delivery = instance_double(ActionMailer::MessageDelivery)
         allow(message_delivery).to receive(:deliver_later)
-        allow(NoticesMailer).to receive(:notify_to_sell).with(email: 'bing708@gmail.com').once
+        allow(NoticesMailer).to receive(:notify_to_sell).with(email: 'bing.xie78@gmail.com').once
                                                         .and_return(message_delivery)
 
         described_class.call
