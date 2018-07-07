@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
 
+  resources :weekly_charts, only: :index
+  resources :daily_charts, only: :index
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'welcome#index'
