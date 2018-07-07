@@ -70,6 +70,15 @@ gem 'lograge'
 # Raven is a Ruby client for Sentry Error Monitoring
 gem 'sentry-raven'
 
+# Create beautiful JavaScript charts with one line of Ruby
+gem "chartkick"
+
+# A Gem for AlphaVantage
+gem 'alphavantagerb'
+
+# IEX Finance API Ruby Client
+gem 'iex-ruby-client'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -93,15 +102,6 @@ group :development, :test do
 
   # Pretty print your Ruby objects with style -- in full color and with proper indentation
   gem 'awesome_print', require: 'ap'
-
-  # Create beautiful JavaScript charts with one line of Ruby
-  gem "chartkick"
-
-  # A Gem for AlphaVantage
-  gem 'alphavantagerb'
-
-  # IEX Finance API Ruby Client
-  gem 'iex-ruby-client'
 end
 
 group :development do
