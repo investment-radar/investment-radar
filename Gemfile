@@ -93,6 +93,15 @@ group :development, :test do
 
   # Pretty print your Ruby objects with style -- in full color and with proper indentation
   gem 'awesome_print', require: 'ap'
+
+  # Create beautiful JavaScript charts with one line of Ruby
+  gem "chartkick"
+
+  # A Gem for AlphaVantage
+  gem 'alphavantagerb'
+
+  # IEX Finance API Ruby Client
+  gem 'iex-ruby-client'
 end
 
 group :development do
@@ -141,4 +150,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: :ruby
