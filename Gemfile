@@ -71,7 +71,7 @@ gem 'lograge'
 gem 'sentry-raven'
 
 # Create beautiful JavaScript charts with one line of Ruby
-gem "chartkick"
+gem 'chartkick'
 
 # A Gem for AlphaVantage
 gem 'alphavantagerb'

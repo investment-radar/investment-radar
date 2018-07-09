@@ -1,17 +1,23 @@
 # frozen_string_literal: true
 
-class WeeklyChartsController < ApplicationController
+class WeeklyChartsController < BaseChartsController
   def index
-    client = Alphavantage::Client.new key: 'Q8KDMSMYB6O7TDZS'
-    symbol = params[:symbol]
-    stock = client.stock symbol: symbol
+    render json: [{ name: 'Weekly', data: weekly_timeseries_data }, { name: 'MA20', data: sma_20_weekly_data }]
+  end
 
-    timeseries = stock.timeseries type: 'weekly'
-    weekly = timeseries.close.first(52)
+  private
 
-    indicator = stock.indicator function: 'SMA', interval: 'weekly', time_period: '20'
-    ma20 = indicator.sma.first(52)
+  def weekly_timeseries_data
+    weekly_timeseries = stock.timeseries(type: 'weekly').close
+    weekly_timeseries.first(52)
+  end
 
-    render json: [{ name: 'Weekly', data: weekly }, { name: 'MA20', data: ma20 }]
+  def sma_20_weekly_data
+    sma_20_weekly = stock.indicator(function: 'SMA', interval: 'weekly', time_period: '20').sma
+    sma_20_weekly.first(52)
+  end
+
+  def stock
+    @stock ||= alphavantage_client.stock symbol: params[:symbol]
   end
 end

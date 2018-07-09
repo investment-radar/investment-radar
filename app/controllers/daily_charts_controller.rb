@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
-class DailyChartsController < ApplicationController
+class DailyChartsController < BaseChartsController
   def index
-    client = Alphavantage::Client.new key: 'Q8KDMSMYB6O7TDZS'
     symbol = params[:symbol]
-    stock = client.stock symbol: symbol
+    stock = alphavantage_client.stock symbol: symbol
 
-    indicator = stock.indicator function: 'EMA', interval: 'daily', time_period: '13'
-    ema13 = indicator.ema.first(200)
-    indicator = stock.indicator function: 'EMA', interval: 'daily', time_period: '34'
-    ema34 = indicator.ema.first(200)
+    ema_13_daily = stock.indicator(function: 'EMA', interval: 'daily', time_period: '13').ema
+    ema_34_daily = stock.indicator(function: 'EMA', interval: 'daily', time_period: '34').ema
 
-    render json: [{ name: 'EMA13', data: ema13 }, { name: 'EMA34', data: ema34 }]
+    render json: [{ name: 'EMA13', data: ema_13_daily.first(200) }, { name: 'EMA34', data: ema_34_daily.first(200) }]
   end
 end
