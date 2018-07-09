@@ -6,7 +6,7 @@ class SellStockNotifier
   attr_reader :long_term_stocks, :email, :stocks_to_notify
 
   def initialize
-    @long_term_stocks = LongTermStock.all
+    @long_term_stocks = LongTermStock.to_hold
     @email = 'bing.xie78@gmail.com'
   end
 
