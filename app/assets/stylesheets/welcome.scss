@@ -4,7 +4,7 @@
 h1 {
   font-size: golden-ratio(14px,  1);
 
-  @include margin(null 10px 3em 20vh);
+  @include margin(null 10px 1em 3vh);
 
-  @include padding(20vh null 10px 3em);
+  @include padding(3vh null 10px 3em);
 }
