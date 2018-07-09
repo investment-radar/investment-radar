@@ -43,8 +43,12 @@ RSpec.describe SellStockNotifier do
     end
 
     context 'when there is one stock with sell action' do
-      let!(:long_term_stock) { create(:long_term_stock, stock_symbol: 'tsla', action: 'sell') }
-      let(:stocks_to_notify) { LongTermStock.to_notify }
+      let(:stocks_to_notify) { LongTermStock.to_sell }
+
+      before do
+        create(:long_term_stock, stock_symbol: 'tsla', action: 'sell')
+        create(:long_term_stock, stock_symbol: 'team', action: 'hold')
+      end
 
       it 'calls NoticesMailer.notify_to_sell' do
         message_delivery = instance_double(ActionMailer::MessageDelivery)
@@ -54,9 +58,9 @@ RSpec.describe SellStockNotifier do
 
         described_class.call
 
+        expect(LongTermStockService).to have_received(:call).with(LongTermStock.to_hold)
         expect(NoticesMailer).to have_received(:notify_to_sell)
-
-        expect(long_term_stock.reload.notified_at).not_to be_nil
+        expect(LongTermStock.to_sell.first.reload.notified_at).not_to be_nil
       end
     end
   end
