@@ -14,6 +14,7 @@ class LongTermStockService
       result = FinanceClient::DecisionEngine.long_term_stock(long_term_stock.stock_symbol)
 
       update_long_term_stock(long_term_stock, result) if result.present?
+      sleep(30) if Rails.env.production?
     end
 
     LongTermStock.to_notify
