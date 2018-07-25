@@ -25,6 +25,8 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+WebMock.disable_net_connect!(allow_localhost: true)
+
 # configure Capybara with Chrome headless
 require 'selenium/webdriver'
 Capybara.register_driver :chrome do |app|
@@ -32,15 +34,15 @@ Capybara.register_driver :chrome do |app|
 end
 
 Capybara.register_driver :headless_chrome do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w[headless disable-gpu] }
-  )
+  browser_options = Selenium::WebDriver::Chrome::Options.new
+  # options.headless!
+  browser_options.args << '--headless'
 
-  Capybara::Selenium::Driver.new app,
-                                 browser: :chrome,
-                                 desired_capabilities: capabilities
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
 end
 
+# Capybara.default_driver = :chrome
 Capybara.javascript_driver = :headless_chrome
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

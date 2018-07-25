@@ -97,8 +97,9 @@ group :development, :test do
   gem 'factory_bot_rails'
 
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
+  gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
 
   # Pretty print your Ruby objects with style -- in full color and with proper indentation
   gem 'awesome_print', require: 'ap'
