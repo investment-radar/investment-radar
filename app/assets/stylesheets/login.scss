@@ -1,15 +1,10 @@
-.hero {
-  $large-screen: 50em !default;
-  align-items: center;
-  background: image-url("background-image.jpg");
-  background-position: right;
-  background-size: none;
-  display: flex;
-  justify-content: center;
-  min-height: 25em;
-  padding: 2em;
+.wrapper {
+  max-width: 78.75em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2em;
+}
 
-  background-position: left;
-  background-size: cover;
-  justify-content: flex-end;
+.login {
+  width: 30em;
 }
