@@ -1,22 +1,20 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'support/steps/login_steps'
 
 describe 'user login process' do
-  before do
-    create(:user, email: 'test@example.com', password: "123456")
-  end
+  include LoginSteps
+
+  let(:user) { create(:user, email: 'test@example.com', password: '123456') }
+
+  before { user }
 
   it 'signs me in' do
-    visit new_user_session_path
+    visit_login_page
 
-    within('.login') do
-      fill_in 'Email', with: 'test@example.com'
-      fill_in 'Password', with: '123456'
+    fill_in_email_and_password_then_click_log_in
 
-      click_button 'Log in'
-    end
-
-    expect(page).to have_content 'test@example.com'
+    page_should_have_log_in_user_email
   end
 end
