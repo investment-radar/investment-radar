@@ -1,10 +1,9 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: stocks
 #
-#  id           :integer          not null, primary key
+#  id           :bigint(8)        not null, primary key
 #  symbol       :string           not null
 #  company_name :string
 #  description  :text
