@@ -11,7 +11,8 @@ class LongTermStockService
 
   def call
     long_term_stocks.each do |long_term_stock|
-      result = FinanceClient::DecisionEngine.long_term_stock(long_term_stock.stock_symbol)
+      engine = DecisionEngine::LongTermStock.new(Rails.application.secrets.decision_engine_token)
+      result = engine.call(long_term_stock.stock_symbol)
 
       update_long_term_stock(long_term_stock, result) if result.present?
       sleep(30) if Rails.env.production?

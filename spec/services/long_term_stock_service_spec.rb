@@ -7,9 +7,11 @@ RSpec.describe LongTermStockService do
 
   let!(:long_term_stock) { create(:long_term_stock, stock_symbol: 'tsla') }
   let(:long_term_stockes) { LongTermStock.all }
+  let(:engine) { double }
 
   before do
-    allow(FinanceClient::DecisionEngine).to receive(:long_term_stock).with('tsla').and_return('decision' => decision)
+    allow(DecisionEngine::LongTermStock).to receive(:new).and_return(engine)
+    allow(engine).to receive(:call).with('tsla').and_return('decision' => decision)
   end
 
   context 'when api return hold decision' do
@@ -18,7 +20,7 @@ RSpec.describe LongTermStockService do
     it 'updates the long term stock record to hold' do
       expect(stocks_to_notify.size).to eq 0
 
-      expect(FinanceClient::DecisionEngine).to have_received(:long_term_stock).with('tsla').once
+      expect(engine).to have_received(:call).with('tsla').once
 
       long_term_stock.reload
 
@@ -32,7 +34,7 @@ RSpec.describe LongTermStockService do
     it 'updates the long term stock record to sell' do
       expect(stocks_to_notify.size).to eq 1
 
-      expect(FinanceClient::DecisionEngine).to have_received(:long_term_stock).with('tsla').once
+      expect(engine).to have_received(:call).with('tsla').once
 
       long_term_stock.reload
 

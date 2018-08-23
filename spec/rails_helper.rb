@@ -38,7 +38,6 @@ Capybara.register_driver :headless_chrome do |app|
   # options.headless!
   browser_options.args << '--headless'
 
-
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
 end
 
