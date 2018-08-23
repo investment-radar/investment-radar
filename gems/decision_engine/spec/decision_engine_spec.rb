@@ -1,9 +1,7 @@
-RSpec.describe DecisionEngine do
-  it "has a version number" do
-    expect(DecisionEngine::VERSION).not_to be nil
-  end
+# frozen_string_literal: true
 
-  it "does something useful" do
-    expect(false).to eq(true)
+RSpec.describe DecisionEngine do
+  it 'has a version number' do
+    expect(DecisionEngine::VERSION).to eq '0.1.0'
   end
 end

@@ -30,7 +30,7 @@ Style/SymbolArray:
 
 Naming/FileName:
   Exclude:
-    - 'Gemfile'
+    - '**/Gemfile'
 
 Metrics/BlockLength:
   Enabled: false

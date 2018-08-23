@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LoginSteps
   def visit_login_page
     visit new_user_session_path
