@@ -24,6 +24,12 @@ GIT
       activesupport (>= 4.2.0)
 
 PATH
+  remote: engines/blorgh
+  specs:
+    blorgh (0.1.0)
+      rails (~> 5.2.0)
+
+PATH
   remote: gems/decision_engine
   specs:
     decision_engine (0.1.0)
@@ -454,6 +460,7 @@ DEPENDENCIES
   annotate
   autoprefixer-rails
   awesome_print
+  blorgh!
   bourbon
   bullet
   byebug
