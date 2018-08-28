@@ -29,7 +29,8 @@ class StockDashboard < Administrate::BaseDashboard
     :id,
     :symbol,
     :company_name,
-    :sector
+    :sector,
+    :note
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
