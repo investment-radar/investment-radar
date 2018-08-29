@@ -11,6 +11,7 @@ module Blorgh
 
     # GET /articles/1
     def show
+      puts Blorgh::ArticleService.hello
     end
 
     # GET /articles/new
