@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 module DecisionEngine
-  class LongTermStock
+  class BaseClient
     BASE_URL = 'https://dry-falls-81080.herokuapp.com/'
 
     def initialize(token)
@@ -10,15 +8,17 @@ module DecisionEngine
 
     # TODO: :reek:NilCheck
     def call(symbol)
-      api_url = "/long_term_stocks/#{symbol}"
-      response = connection.get api_url
+      response = connection.get api_url(symbol)
 
-      JSON.parse(response.body) if response&.success?
+      response.body if response&.success?
+    end
+
+    def api_url(_symbol)
+      raise NotImplementedError
     end
 
     private
 
-    # TODO: refactoring to use BaseClient
     def connection
       conn = Faraday.new(url: BASE_URL) do |faraday|
         faraday.adapter Faraday.default_adapter
