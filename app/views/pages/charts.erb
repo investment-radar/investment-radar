@@ -1,7 +1,6 @@
-<h1>Hello Charts</h1>
 <h2>
 <%
-  LongTermStock.all.each do |stock|
+  LongTermStock.to_hold.each do |stock|
 %>
   <%= link_to stock.stock_symbol.upcase, "./charts?symbol=#{stock.stock_symbol}" %>
   &nbsp;&nbsp;&nbsp;&nbsp;
@@ -9,6 +8,16 @@
   end
 %>
 </h2>
+<br />
+<%
+  LongTermStock.to_sell.each do |stock|
+%>
+  <%= link_to stock.stock_symbol.upcase, "./charts?symbol=#{stock.stock_symbol}" %>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+<%
+  end
+%>
+
 <%
   symbol = params[:symbol] || 'SPY'
   quote = IEX::Resources::Quote.get(symbol)
@@ -16,7 +25,7 @@
   min_price = quote.week_52_low.floor
 %>
 
-<h3><%= symbol.upcase %>
+<h3><%= symbol.upcase %></h3>
 <%= line_chart weekly_charts_path(symbol: symbol), min: min_price, mix: max_price, points: false, height: "500px" %>
 
 <%= line_chart daily_charts_path(symbol: symbol), min: min_price, mix: max_price, points: false, height: "500px" %>
