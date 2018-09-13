@@ -16,8 +16,9 @@
 class LongTermStock < ApplicationRecord
   SELL_ACTION = 'sell'
   HOLD_ACTION = 'hold'
+  NULL_ACTION = 'null'
 
-  validates :action, inclusion: { in: [SELL_ACTION, HOLD_ACTION] }
+  validates :action, inclusion: { in: [SELL_ACTION, HOLD_ACTION, NULL_ACTION] }
 
   scope :to_hold, -> { where(action: HOLD_ACTION) }
   scope :to_sell, -> { where(action: SELL_ACTION) }
