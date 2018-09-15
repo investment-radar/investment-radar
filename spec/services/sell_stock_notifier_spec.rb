@@ -47,6 +47,7 @@ RSpec.describe SellStockNotifier do
 
       before do
         create(:long_term_stock, stock_symbol: 'tsla', action: 'sell')
+        create(:long_term_stock, stock_symbol: 'msft', action: 'sell')
         create(:long_term_stock, stock_symbol: 'team', action: 'hold')
       end
 
@@ -55,12 +56,15 @@ RSpec.describe SellStockNotifier do
         allow(message_delivery).to receive(:deliver_later)
         allow(NoticesMailer).to receive(:notify_to_sell).with(email: 'bing.xie78@gmail.com').once
                                                         .and_return(message_delivery)
+        allow(TwilioSmsService).to receive(:call)
 
         described_class.call
 
         expect(LongTermStockService).to have_received(:call).with(LongTermStock.to_hold)
         expect(NoticesMailer).to have_received(:notify_to_sell)
+        expect(TwilioSmsService).to have_received(:call).with('Sell: tsla, msft', '+61455500146')
         expect(LongTermStock.to_sell.first.reload.notified_at).not_to be_nil
+        expect(LongTermStock.to_sell.second.reload.notified_at).not_to be_nil
       end
     end
   end

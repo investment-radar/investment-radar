@@ -32,6 +32,13 @@ class SellStockNotifier
 
     NoticesMailer.notify_to_sell(email: email).deliver_later
 
+    send_sell_message
+
     stocks_to_notify.update(notified_at: Time.current)
+  end
+
+  def send_sell_message
+    stocks_str = stocks_to_notify.map(&:stock_symbol).join(', ')
+    TwilioSmsService.call("Sell: #{stocks_str}", '+61455500146')
   end
 end
