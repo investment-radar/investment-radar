@@ -1,0 +1,4 @@
+var ackFormClass = "<%= "ack_stock_#{@stock.id}" %>";
+var ackForm = document.getElementsByClassName(ackFormClass)[0];
+
+ackForm.replaceWith("<%= @stock.acked_at.strftime('%Y-%m-%d %I:%M%p') %>")

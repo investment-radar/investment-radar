@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: long_term_stocks
@@ -11,6 +10,7 @@
 #  updated_at   :datetime         not null
 #  notified_at  :datetime
 #  cost         :float
+#  acked_at     :datetime
 #
 
 class LongTermStock < ApplicationRecord
@@ -23,9 +23,10 @@ class LongTermStock < ApplicationRecord
   scope :to_hold, -> { where(action: HOLD_ACTION) }
   scope :to_sell, -> { where(action: SELL_ACTION) }
 
-  scope :to_notify, -> { to_sell.where(notified_at: nil) }
+  scope :to_notify, -> { to_sell.where(acked_at: nil) }
 
-  def need_notify?
-    action == LongTermStock::SELL_ACTION && notified_at.blank?
+
+  def need_ack?
+    action == LongTermStock::SELL_ACTION && acked_at.blank?
   end
 end

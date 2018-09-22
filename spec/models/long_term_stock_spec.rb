@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: long_term_stocks
@@ -11,6 +10,7 @@
 #  updated_at   :datetime         not null
 #  notified_at  :datetime
 #  cost         :float
+#  acked_at     :datetime
 #
 
 require 'rails_helper'
@@ -46,7 +46,7 @@ RSpec.describe LongTermStock, type: :model do
     subject(:notify_stocks) { described_class.to_notify }
 
     before do
-      create(:long_term_stock, stock_symbol: 'team', action: LongTermStock::SELL_ACTION, notified_at: Time.current)
+      create(:long_term_stock, stock_symbol: 'team', action: LongTermStock::SELL_ACTION, acked_at: Time.current)
       create(:long_term_stock, stock_symbol: 'shop', action: LongTermStock::SELL_ACTION)
     end
 
@@ -54,35 +54,35 @@ RSpec.describe LongTermStock, type: :model do
     it { expect(notify_stocks.first.stock_symbol).to eq 'shop' }
   end
 
-  describe '.need_notify?' do
-    subject(:need_notify) { long_term_stock.need_notify? }
+  describe '#need_ack?' do
+    subject(:need_ack) { long_term_stock.need_ack? }
 
-    let(:long_term_stock) { build_stubbed(:long_term_stock, action: action, notified_at: notified_at) }
+    let(:long_term_stock) { build_stubbed(:long_term_stock, action: action, acked_at: acked_at) }
 
-    context 'when action is hold and notified_at is nil' do
+    context 'when action is hold and acked_at is nil' do
       let(:action) { LongTermStock::HOLD_ACTION }
-      let(:notified_at) { nil }
+      let(:acked_at) { nil }
 
       it { is_expected.to be false }
     end
 
-    context 'when action is hold and notified_at is present' do
+    context 'when action is hold and acked_at is present' do
       let(:action) { LongTermStock::HOLD_ACTION }
-      let(:notified_at) { Time.current }
+      let(:acked_at) { Time.current }
 
       it { is_expected.to be false }
     end
 
-    context 'when action is sold and notified_at is nil' do
+    context 'when action is sold and acked_at is nil' do
       let(:action) { LongTermStock::SELL_ACTION }
-      let(:notified_at) { nil }
+      let(:acked_at) { nil }
 
       it { is_expected.to be true }
     end
 
-    context 'when action is sold and notified_at is present' do
+    context 'when action is sold and acked_at is present' do
       let(:action) { LongTermStock::SELL_ACTION }
-      let(:notified_at) { Time.current }
+      let(:acked_at) { Time.current }
 
       it { is_expected.to be false }
     end
