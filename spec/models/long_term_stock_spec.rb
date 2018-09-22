@@ -46,7 +46,7 @@ RSpec.describe LongTermStock, type: :model do
     subject(:notify_stocks) { described_class.to_notify }
 
     before do
-      create(:long_term_stock, stock_symbol: 'team', action: LongTermStock::SELL_ACTION, notified_at: Time.current)
+      create(:long_term_stock, stock_symbol: 'team', action: LongTermStock::SELL_ACTION, acked_at: Time.current)
       create(:long_term_stock, stock_symbol: 'shop', action: LongTermStock::SELL_ACTION)
     end
 
