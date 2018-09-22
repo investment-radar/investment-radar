@@ -12,6 +12,17 @@
   <body>
     <section class="container">
       <div class="wrapper">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <th><h2><%= link_to "投资雷达", root_path %></h2></th>
+              <th><h2><%= link_to "持仓列表", positions_path %></h2></th>
+              <th><h2><%= link_to "图表分析", page_path("charts") %></h2></th>
+              <th><h2><%= link_to "后台管理", admin_root_path %></h2></th>
+            </tr>
+          </tbody>
+        </table>
+
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
 
