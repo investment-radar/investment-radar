@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DecisionEngine
   class BaseClient
     BASE_URL = 'https://dry-falls-81080.herokuapp.com/'

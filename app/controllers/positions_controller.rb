@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PositionsController < ApplicationController
   def index
     @long_term_stocks = LongTermStock.all.order(:notified_at)

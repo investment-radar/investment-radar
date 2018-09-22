@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: long_term_stocks
@@ -24,7 +25,6 @@ class LongTermStock < ApplicationRecord
   scope :to_sell, -> { where(action: SELL_ACTION) }
 
   scope :to_notify, -> { to_sell.where(acked_at: nil) }
-
 
   def need_ack?
     action == LongTermStock::SELL_ACTION && acked_at.blank?
