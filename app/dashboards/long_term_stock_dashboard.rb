@@ -16,7 +16,8 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     cost: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    notified_at: Field::DateTime
+    notified_at: Field::DateTime,
+    acked_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -30,7 +31,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :action,
     :cost,
     :notified_at,
-    :updated_at
+    :acked_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -41,6 +42,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :action,
     :cost,
     :notified_at,
+    :acked_at,
     :created_at,
     :updated_at
   ].freeze
@@ -51,6 +53,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :stock_symbol,
     :notified_at,
+    :acked_at,
     :cost,
     :action
   ].freeze

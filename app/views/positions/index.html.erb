@@ -13,10 +13,12 @@ My Positions
       <tr>
         <td><%= stock.stock_symbol %></td>
         <td><%= stock.action %></td>
-        <td><%= stock.notified_at %></td>
+        <td><%= stock.notified_at&.strftime("%Y-%m-%d %I:%M%p") %></td>
         <td>
           <% if stock.need_ack? %>
-            <button>确认</button>
+            <%= button_to "确认", ack_stock_path(stock), remote: true, method: :patch, form_class: "ack_stock_#{stock.id}", data: { confirm: 'Are you sure to Act?', 'disable-with': 'Acting ...'} %>
+          <% elsif stock.acked_at.present? %>
+            <%= stock.acked_at.strftime('%Y-%m-%d %I:%M%p') %>
           <% end %>
         </td>
       </tr>
