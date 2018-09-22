@@ -28,4 +28,8 @@ class LongTermStock < ApplicationRecord
   def need_notify?
     action == LongTermStock::SELL_ACTION && notified_at.blank?
   end
+
+  def need_ack?
+    action == LongTermStock::SELL_ACTION && notified_at.present?
+  end
 end

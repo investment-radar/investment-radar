@@ -1,0 +1,25 @@
+<h2>
+My Positions
+</h2>
+
+<table cellspacing="0" cellpadding="0">
+    <tbody><tr>
+      <th>Stock</th>
+      <th>Action</th>
+      <th>Notified At</th>
+      <th>Ack</th>
+    </tr>
+    <% @long_term_stocks.each do |stock| %>
+      <tr>
+        <td><%= stock.stock_symbol %></td>
+        <td><%= stock.action %></td>
+        <td><%= stock.notified_at %></td>
+        <td>
+          <% if stock.need_ack? %>
+            <button>确认</button>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
