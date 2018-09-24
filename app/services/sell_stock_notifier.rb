@@ -40,5 +40,7 @@ class SellStockNotifier
   def send_sell_message
     stocks_str = stocks_to_notify.map(&:stock_symbol).join(', ')
     TwilioSmsService.call("Sell: #{stocks_str}", '+61455500146')
+
+    Rails.logger.info "Send sms to notify!"
   end
 end
