@@ -51,6 +51,7 @@ RSpec.describe SellStockNotifier do
         create(:long_term_stock, stock_symbol: 'team', action: 'hold')
       end
 
+      # rubocop:disable RSpec/MultipleExpectations
       it 'calls NoticesMailer.notify_to_sell' do
         message_delivery = instance_double(ActionMailer::MessageDelivery)
         allow(message_delivery).to receive(:deliver_later)
@@ -66,6 +67,7 @@ RSpec.describe SellStockNotifier do
         expect(LongTermStock.to_sell.first.reload.notified_at).not_to be_nil
         expect(LongTermStock.to_sell.second.reload.notified_at).not_to be_nil
       end
+      # rubocop:enable RSpec/MultipleExpectations
     end
   end
 end
