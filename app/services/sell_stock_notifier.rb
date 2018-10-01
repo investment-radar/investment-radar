@@ -30,7 +30,7 @@ class SellStockNotifier
   def send_notifications
     return unless stocks_to_notify.any?
 
-    NoticesMailer.notify_to_sell(email: email).deliver_later
+    NoticesMailer.notify_to_sell(email: email).deliver_now
 
     send_sell_message
 

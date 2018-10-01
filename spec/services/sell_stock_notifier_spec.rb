@@ -54,7 +54,7 @@ RSpec.describe SellStockNotifier do
       # rubocop:disable RSpec/MultipleExpectations
       it 'calls NoticesMailer.notify_to_sell' do
         message_delivery = instance_double(ActionMailer::MessageDelivery)
-        allow(message_delivery).to receive(:deliver_later)
+        allow(message_delivery).to receive(:deliver_now)
         allow(NoticesMailer).to receive(:notify_to_sell).with(email: 'bing.xie78@gmail.com').once
                                                         .and_return(message_delivery)
         allow(TwilioSmsService).to receive(:call)
