@@ -17,7 +17,8 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     notified_at: Field::DateTime,
-    acked_at: Field::DateTime
+    acked_at: Field::DateTime,
+    stop_price: Field::Number
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,7 +30,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :id,
     :stock_symbol,
     :action,
-    :cost,
+    :stop_price,
     :notified_at,
     :acked_at
   ].freeze
@@ -40,7 +41,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :id,
     :stock_symbol,
     :action,
-    :cost,
+    :stop_price,
     :notified_at,
     :acked_at,
     :created_at,
@@ -54,7 +55,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :stock_symbol,
     :notified_at,
     :acked_at,
-    :cost,
+    :stop_price,
     :action
   ].freeze
 

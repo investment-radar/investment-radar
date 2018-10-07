@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_22_000707) do
+ActiveRecord::Schema.define(version: 2018_10_07_133635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2018_09_22_000707) do
     t.datetime "notified_at"
     t.float "cost"
     t.datetime "acked_at"
+    t.float "stop_price"
   end
 
   create_table "stocks", force: :cascade do |t|

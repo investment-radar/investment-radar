@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: long_term_stocks
@@ -12,6 +11,7 @@
 #  notified_at  :datetime
 #  cost         :float
 #  acked_at     :datetime
+#  stop_price   :float
 #
 
 FactoryBot.define do

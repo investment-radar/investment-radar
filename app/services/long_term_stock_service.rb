@@ -24,6 +24,6 @@ class LongTermStockService
   private
 
   def update_long_term_stock(long_term_stock, result)
-    long_term_stock.update!(action: result['decision'])
+    long_term_stock.update!(action: result['decision'], stop_price: result['stop_price'])
   end
 end
