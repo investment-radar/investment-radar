@@ -81,6 +81,11 @@ gem 'iex-ruby-client'
 
 gem 'decision_engine', path: './gems/decision_engine'
 
+# Catch unsafe migrations at dev time
+gem 'strong_migrations'
+# Zero downtime migrations with ActiveRecord and PostgreSQL
+gem 'zero_downtime_migrations'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -132,14 +137,8 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  # Catch unsafe migrations at dev time
-  gem 'strong_migrations'
-
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-
-  # Zero downtime migrations with ActiveRecord and PostgreSQL
-  gem 'zero_downtime_migrations'
 end
 
 group :test do
