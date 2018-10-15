@@ -1,4 +1,16 @@
 <h2>
+Watchlist:&nbsp;&nbsp;
+<%
+  Watchlist.find_each do |stock|
+%>
+  <%= link_to stock.symbol.upcase, "./charts?symbol=#{stock.symbol}" %>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+<%
+  end
+%>
+</h2>
+<h2>
+Positions:&nbsp;&nbsp;
 <%
   LongTermStock.to_hold.each do |stock|
 %>

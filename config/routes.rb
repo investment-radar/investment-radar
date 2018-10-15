@@ -7,9 +7,10 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :users
-    resources :long_term_stocks
     resources :stocks
+    resources :watchlists
     resources :buy_in_stocks
+    resources :long_term_stocks
 
     root to: "users#index"
   end
