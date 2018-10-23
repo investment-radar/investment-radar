@@ -92,7 +92,7 @@ group :development, :test do
   # Adds step-by-step debugging and stack navigation capabilities to pry using byebug.
   gem 'pry-byebug'
 
-  gem 'rspec-rails', '~> 3.7.2'
+  gem 'rspec-rails', '~> 3.8.1'
 
   # Collection of testing matchers extracted from Shoulda
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
