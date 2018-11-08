@@ -35,9 +35,21 @@ Positions:&nbsp;&nbsp;
   quote = IEX::Resources::Quote.get(symbol)
   max_price = quote.week_52_high.ceil
   min_price = quote.week_52_low.floor
+
+  token = Rails.application.secrets.decision_engine_token
+  daily_stock = JSON.parse(DecisionEngine::DailyStocks.new(token).call(symbol)) || {}
+  weekly_stock = JSON.parse(DecisionEngine::WeeklyStocks.new(token).call(symbol)) || {}
 %>
 
+
 <h3><%= symbol.upcase %></h3>
+<p>
+date: <%= weekly_stock['week_day'] %> | close: <%= weekly_stock['close'] %> | E_3: <%= weekly_stock['ema_3'] %> | E_13: <%= weekly_stock['ema_13'] %> | MA_20: <%= weekly_stock['sma_20'] %>
+</p>
 <%= line_chart weekly_charts_path(symbol: symbol), min: min_price, mix: max_price, points: false, height: "500px" %>
 
+<h3><%= symbol.upcase %></h3>
+<p>
+date: <%= daily_stock['date'] %> | E_3: <%= daily_stock['ema_3'] %> | E_13: <%= daily_stock['ema_13'] %> | E_34: <%= daily_stock['ema_34'] %>
+</p>
 <%= line_chart daily_charts_path(symbol: symbol), min: min_price, mix: max_price, points: false, height: "500px" %>
