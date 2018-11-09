@@ -2,7 +2,7 @@
 
 module DecisionEngine
   class BaseClient
-    BASE_URL = 'https://dry-falls-81080.herokuapp.com/'
+    BASE_URL = ENV['DECISION_ENGINE_BASE_URL'] || 'https://dry-falls-81080.herokuapp.com/'
 
     def initialize(token)
       @token = token
