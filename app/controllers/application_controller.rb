@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_raven_context
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def append_info_to_payload(payload)
     super

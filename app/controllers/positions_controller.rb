@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PositionsController < ApplicationController
+  include Secured
+
   attr_reader :stock
   before_action :find_stock, only: [:ack]
 

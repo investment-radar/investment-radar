@@ -1,7 +1,7 @@
 <h1>Hello World</h1>
 
 <p>
-  Current User: <%= current_user.email %>
+  Current User: <%= current_user&.email %>
 </p>
 
 <p>
@@ -21,3 +21,6 @@
   <%= link_to('Login', new_user_session_path)  %>
   </li>
 <% end %>
+
+<p>Step 1 - Login with Auth0.</p>
+<a href="/auth/auth0">Login</a>
