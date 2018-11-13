@@ -57,6 +57,8 @@ gem 'faraday'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise', github: 'plataformatec/devise'
 
+gem 'omniauth-facebook'
+
 # A Rails engine that helps you put together a super-flexible admin dashboard
 gem 'administrate'
 
@@ -88,6 +90,8 @@ gem 'zero_downtime_migrations'
 
 # Easiest way to add multi-environment yaml settings to Rails
 gem 'config'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

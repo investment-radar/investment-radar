@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   resources :positions, only: :index
   patch '/positions/:id/ack', to: 'positions#ack', as: 'ack_stock'
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'welcome#index'
 end
