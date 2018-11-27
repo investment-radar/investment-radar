@@ -11,6 +11,7 @@ require 'rspec/rails'
 require 'support/factory_bot'
 
 Dir[Rails.root.join('spec/support/helpers/**/*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join('spec/support/pages/**/*.rb')].sort.each { |f| require f }
 
 require 'webmock/rspec'
 
