@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.5.0'
+ruby '2.5.3'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -10,7 +10,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -95,7 +95,7 @@ group :development, :test do
   # Adds step-by-step debugging and stack navigation capabilities to pry using byebug.
   gem 'pry-byebug'
 
-  gem 'rspec-rails', '~> 3.8.1'
+  gem 'rspec-rails'
 
   # Collection of testing matchers extracted from Shoulda
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
