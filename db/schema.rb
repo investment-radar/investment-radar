@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_031956) do
+ActiveRecord::Schema.define(version: 2019_03_05_035127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 2019_03_05_031956) do
 
   create_table "long_term_stocks", force: :cascade do |t|
     t.string "stock_symbol", limit: 10, null: false
-    t.string "action", limit: 10
+    t.string "action", limit: 10, default: "hold"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "notified_at"
-    t.float "cost"
+    t.float "cost", null: false
     t.datetime "acked_at"
     t.float "stop_price"
-    t.integer "shares"
+    t.integer "shares", null: false
     t.float "ma30"
   end
 

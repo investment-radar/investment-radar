@@ -5,14 +5,14 @@
 #
 #  id           :bigint(8)        not null, primary key
 #  stock_symbol :string(10)       not null
-#  action       :string(10)
+#  action       :string(10)       default("hold")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  notified_at  :datetime
-#  cost         :float
+#  cost         :float            not null
 #  acked_at     :datetime
 #  stop_price   :float
-#  shares       :integer
+#  shares       :integer          not null
 #  ma30         :float
 #
 
