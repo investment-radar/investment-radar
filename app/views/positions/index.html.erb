@@ -2,6 +2,10 @@
 My Positions
 </h2>
 
+<% if @long_term_stocks.size > 5 %>
+  <p class="alert">不要持有超过 5 只股票</p>
+<% end %>
+
 <table cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
