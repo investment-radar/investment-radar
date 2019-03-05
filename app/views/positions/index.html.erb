@@ -17,14 +17,25 @@ My Positions
       <th>Notified At</th>
       <th>Ack</th>
     </tr>
+    <%
+      total = 0
+      total_cost = 0
+    %>
     <% @long_term_stocks.each do |stock| %>
       <tr>
         <td><%= stock.stock_symbol %></td>
         <td><%= stock.shares %></td>
         <td><%= stock.cost %></td>
+        <%
+          total_cost += stock.total_cost
+        %>
         <%# close price %>
         <% quote = FinanceClient::Stock.quote(stock.stock_symbol) %>
         <td><%= quote["latestPrice"] %></td>
+        <%
+          market_value = (quote["latestPrice"] * stock.shares).to_i
+          total += market_value
+        %>
         <td><%= (quote["latestPrice"] * stock.shares).to_i %> </td>
         <td><%= ((quote["latestPrice"] - stock.cost) / stock.cost * 100).round(2) %>%</td>
         <td><%= stock.ma30 %></td>
@@ -42,3 +53,5 @@ My Positions
     <% end %>
   </tbody>
 </table>
+
+Total: <%= total %> | Total Cost: <%= total_cost %> | Gain/Lost: <%= total - total_cost%>

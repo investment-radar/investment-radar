@@ -37,4 +37,8 @@ class LongTermStock < ApplicationRecord
     tmp_price = cost * 0.92
     (tmp_price > ma30 ? tmp_price : ma30).round(2)
   end
+
+  def total_cost
+    (cost * shares).to_i
+  end
 end
