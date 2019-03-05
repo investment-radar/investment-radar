@@ -6,7 +6,7 @@ Rails.application.configure do
 
     {
       params: event.payload[:params].except(*exceptions),
-      time: event.time.iso8601,
+      time: Time.now.iso8601,
       host: event.payload[:host],
       user_id: event.payload[:user_id]
     }
