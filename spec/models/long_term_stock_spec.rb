@@ -12,6 +12,8 @@
 #  cost         :float
 #  acked_at     :datetime
 #  stop_price   :float
+#  shares       :integer
+#  ma30         :float
 #
 
 require 'rails_helper'

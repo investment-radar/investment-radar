@@ -12,6 +12,8 @@
 #  cost         :float
 #  acked_at     :datetime
 #  stop_price   :float
+#  shares       :integer
+#  ma30         :float
 #
 
 class LongTermStock < ApplicationRecord
@@ -28,5 +30,10 @@ class LongTermStock < ApplicationRecord
 
   def need_ack?
     action == LongTermStock::SELL_ACTION && acked_at.blank?
+  end
+
+  def caculated_stop_price
+    tmp_price = cost * 0.92
+    (tmp_price > ma30 ? tmp_price : ma30).round(2)
   end
 end
