@@ -54,7 +54,7 @@ gem 'twilio-ruby'
 gem 'faraday'
 
 # Flexible authentication solution for Rails with Warden.
-gem 'devise', github: 'plataformatec/devise'
+gem 'devise'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard
 gem 'administrate'
