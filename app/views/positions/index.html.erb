@@ -20,6 +20,8 @@ My Positions
     <%
       total = 0
       total_cost = 0
+      cost_chart_data = {}
+      market_chart_data = {}
     %>
     <% @long_term_stocks.each do |stock| %>
       <tr>
@@ -28,6 +30,7 @@ My Positions
         <td><%= stock.cost %></td>
         <%
           total_cost += stock.total_cost
+          cost_chart_data[stock.stock_symbol] = stock.total_cost
         %>
         <%# close price %>
         <% quote = FinanceClient::Stock.quote(stock.stock_symbol) %>
@@ -35,6 +38,7 @@ My Positions
         <%
           market_value = (quote["latestPrice"] * stock.shares).to_i
           total += market_value
+          market_chart_data[stock.stock_symbol] = market_value
         %>
         <td><%= (quote["latestPrice"] * stock.shares).to_i %> </td>
         <td><%= ((quote["latestPrice"] - stock.cost) / stock.cost * 100).round(2) %>%</td>
@@ -55,3 +59,15 @@ My Positions
 </table>
 
 Total: <%= total %> | Total Cost: <%= total_cost %> | Gain/Lost: <%= total - total_cost%>
+<table cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+        <%= pie_chart(cost_chart_data, width: "400px") %>
+      </td>
+      <td>
+        <%= pie_chart(market_chart_data, width: "400px") %>
+      </td>
+    </tr>
+  </tbody>
+</table>
