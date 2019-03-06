@@ -23,6 +23,7 @@ My Positions
       <th>Ack</th>
     </tr>
     <%
+      total_capital = 250000
       total = 0
       total_cost = 0
       cost_chart_data = {}
@@ -64,7 +65,7 @@ My Positions
   </tbody>
 </table>
 
-Total: <%= total %> | Total Cost: <%= total_cost %> | Gain/Lost: <%= total - total_cost%>
+<b>Total Market:</b> <%= total %> | Total Cost: <%= total_cost %> | <b>Gain/Lost:</b> <%= total - total_cost%> | Total Capital: <%= total_capital%> | <b>Cash:</b> <%= total_capital - total_cost%>
 <table cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
