@@ -38,6 +38,14 @@ class LongTermStock < ApplicationRecord
     (tmp_price > ma30 ? tmp_price : ma30).round(2)
   end
 
+  def caculated_risk
+    if caculated_stop_price < cost
+      ((cost - caculated_stop_price) / cost * 100).round(2)
+    else
+      return 0
+    end
+  end
+
   def total_cost
     (cost * shares).to_i
   end

@@ -17,6 +17,7 @@ My Positions
       <th>Change</th>
       <th>MA30</th>
       <th>Stop</th>
+      <th>Risk</th>
       <th>Action</th>
       <th>Notified At</th>
       <th>Ack</th>
@@ -48,6 +49,7 @@ My Positions
         <td><%= ((quote["latestPrice"] - stock.cost) / stock.cost * 100).round(2) %>%</td>
         <td><%= stock.ma30 %></td>
         <td><%= stock.caculated_stop_price %></td>
+        <td><%= stock.caculated_risk %>%</td>
         <td><%= stock.action %></td>
         <td><%= stock.notified_at&.strftime("%Y-%m-%d %I:%M%p") %></td>
         <td>
