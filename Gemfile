@@ -44,8 +44,7 @@ gem 'jbuilder', '~> 2.5'
 # ActiveRecord backend integration for DelayedJob 3.0+
 gem 'delayed_job_active_record'
 
-# Mailgun's Official Ruby Library
-gem 'mailgun-ruby', '~>1.1.6'
+gem 'sendgrid-ruby'
 
 # A Ruby gem for communicating with the Twilio API and generating TwiML
 gem 'twilio-ruby'

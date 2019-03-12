@@ -47,7 +47,8 @@
 
 ## 第三方服务
 
-* mailgun - 邮件服务
+* sendgrid - 邮件服务
+* twilio - 短信服务
 
 ## 本地开发设置
 1. 安装heroku-cli [Link](https://devcenter.heroku.com/articles/heroku-cli#macos)
