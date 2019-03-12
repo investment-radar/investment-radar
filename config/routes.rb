@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :watchlists
     resources :buy_in_stocks
     resources :long_term_stocks
+    resources :trading_records
 
     root to: "users#index"
   end
