@@ -7,7 +7,7 @@ class LongTermStockService
 
   def initialize(stocks)
     @long_term_stocks = stocks
-    @decision_engine = DecisionEngine::LongTermStock.new(Rails.application.secrets.decision_engine_token)
+    @decision_engine = DecisionEngine::LongTermStock.new(Rails.application.credentials[Rails.env.to_sym][:decision_engine_token])
   end
 
   def call

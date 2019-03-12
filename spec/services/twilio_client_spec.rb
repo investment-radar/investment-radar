@@ -9,11 +9,13 @@ RSpec.describe TwilioClient do
 
       described_class.build
 
+      credentials = Rails.application.credentials[Rails.env.to_sym]
+      account_sid = credentials[:twilio_account_sid]
+      auth_token = credentials[:twilio_auth_token]
+
       expect(Twilio::REST::Client).to have_received(:new)
-        .with(
-          Rails.application.secrets.twilio_account_sid,
-          Rails.application.secrets.twilio_auth_token
-        ).once
+        .with(account_sid, auth_token)
+        .once
     end
   end
 end

@@ -27,8 +27,6 @@ coverage
 
 .vscode
 
-# Ignore encrypted secrets key file.
-config/secrets.yml.key
 /public/packs
 /public/packs-test
 /node_modules
@@ -38,3 +36,7 @@ yarn-debug.log*
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+sendgrid.env
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
