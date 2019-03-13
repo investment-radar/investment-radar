@@ -90,4 +90,32 @@ RSpec.describe LongTermStock, type: :model do
       it { is_expected.to be false }
     end
   end
+
+  describe '#caculated_stop_price' do
+    let(:stock) { build(:long_term_stock, cost: 100.00, ma30: ma30) }
+
+    context 'when ma30 is nil' do
+      let(:ma30) { nil }
+
+      it 'returns 0' do
+        expect(stock.caculated_stop_price).to eq 0
+      end
+    end
+
+    context 'when ma30 is larger then the 8 percentage lost price' do
+      let(:ma30) { 93.05 }
+
+      it 'returns ma30 price' do
+        expect(stock.caculated_stop_price).to eq ma30
+      end
+    end
+
+    context 'when ma30 is less then the 8 percentage lost price' do
+      let(:ma30) { 91.05 }
+
+      it 'returns ma30 price' do
+        expect(stock.caculated_stop_price).to eq 92.00
+      end
+    end
+  end
 end

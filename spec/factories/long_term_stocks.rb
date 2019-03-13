@@ -18,7 +18,9 @@
 
 FactoryBot.define do
   factory :long_term_stock do
-    stock_symbol 'shop'
+    stock_symbol 'SHOP'
     action 'hold'
+    cost 100.10
+    shares 200
   end
 end

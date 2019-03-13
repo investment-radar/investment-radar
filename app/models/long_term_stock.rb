@@ -34,6 +34,8 @@ class LongTermStock < ApplicationRecord
   end
 
   def caculated_stop_price
+    return 0 unless ma30
+
     tmp_price = cost * 0.92
     (tmp_price > ma30 ? tmp_price : ma30).round(2)
   end
