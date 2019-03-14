@@ -97,8 +97,8 @@ RSpec.describe LongTermStock, type: :model do
     context 'when ma30 is nil' do
       let(:ma30) { nil }
 
-      it 'returns 0' do
-        expect(stock.caculated_stop_price).to eq 0
+      it 'returns max_lost_price' do
+        expect(stock.caculated_stop_price).to eq 92.0
       end
     end
 
@@ -116,6 +116,43 @@ RSpec.describe LongTermStock, type: :model do
       it 'returns ma30 price' do
         expect(stock.caculated_stop_price).to eq 92.00
       end
+    end
+  end
+
+  describe '#total_cost' do
+    it 'caculates total cost with cost and shares' do
+      stock = build(:long_term_stock, cost: 10.5, shares: 50)
+      expect(stock.total_cost).to eq 525
+    end
+
+    it 'returns 0 when shares is 0' do
+      stock = build(:long_term_stock, cost: 10.5, shares: 0)
+      expect(stock.total_cost).to eq 0
+    end
+  end
+
+  describe '#market_value' do
+    it 'caculates market value with latest price and shares' do
+      stock = build(:long_term_stock, shares: 50)
+      allow(stock).to receive(:latest_price).and_return(22.3)
+
+      expect(stock.market_value).to eq 1115
+    end
+  end
+
+  describe '#caculated_risk' do
+    it 'returns the percentage of risk' do
+      stock = build(:long_term_stock, cost: 50)
+      allow(stock).to receive(:caculated_stop_price).and_return(45.6)
+      expect(stock.caculated_risk).to eq 8.8
+    end
+  end
+
+  describe '#caculated_lost' do
+    it 'returns the total in risk' do
+      stock = build(:long_term_stock, cost: 50.71, shares: 100)
+      allow(stock).to receive(:caculated_stop_price).and_return(45.6)
+      expect(stock.caculated_lost).to eq 511
     end
   end
 end

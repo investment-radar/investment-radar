@@ -34,18 +34,17 @@ class LongTermStock < ApplicationRecord
   end
 
   def caculated_stop_price
-    return 0 unless ma30
+    return max_lost_price if ma30.nil?
 
-    tmp_price = cost * 0.92
-    (tmp_price > ma30 ? tmp_price : ma30).round(2)
+    max_lost_price > ma30 ? max_lost_price : ma30
+  end
+
+  def max_lost_price
+    (cost * 0.92).round(2)
   end
 
   def caculated_risk
-    if caculated_stop_price < cost
-      ((cost - caculated_stop_price) / cost * 100).round(2)
-    else
-      return 0
-    end
+    ((cost - caculated_stop_price) / cost * 100).round(2)
   end
 
   def caculated_lost
@@ -54,5 +53,13 @@ class LongTermStock < ApplicationRecord
 
   def total_cost
     (cost * shares).to_i
+  end
+
+  def latest_price
+    @latest_price ||= FinanceClient::Stock.quote(stock_symbol)['latestPrice']
+  end
+
+  def market_value
+    (latest_price * shares).to_i
   end
 end

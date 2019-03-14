@@ -40,16 +40,13 @@ My Positions
           total_cost += stock.total_cost
           cost_chart_data[stock.stock_symbol] = stock.total_cost
         %>
-        <%# close price %>
-        <% quote = FinanceClient::Stock.quote(stock.stock_symbol) %>
-        <td><%= quote["latestPrice"] %></td>
+        <td><%= stock.latest_price %></td>
         <%
-          market_value = (quote["latestPrice"] * stock.shares).to_i
-          total += market_value
-          market_chart_data[stock.stock_symbol] = market_value
+          total += stock.market_value
+          market_chart_data[stock.stock_symbol] = stock.market_value
         %>
-        <td><%= (quote["latestPrice"] * stock.shares).to_i %> </td>
-        <td><%= ((quote["latestPrice"] - stock.cost) / stock.cost * 100).round(2) %>%</td>
+        <td><%= stock.market_value %> </td>
+        <td><%= ((stock.latest_price - stock.cost) / stock.cost * 100).round(2) %>%</td>
         <td><%= stock.ma30 %></td>
         <td><%= stock.caculated_stop_price %></td>
         <td><%= stock.caculated_lost %></td>
