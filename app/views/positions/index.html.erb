@@ -23,36 +23,17 @@ My Positions
       <th>Notified At</th>
       <th>Ack</th>
     </tr>
-    <%
-      total_capital = 250000
-      total_risk = 0
-      total = 0
-      total_cost = 0
-      cost_chart_data = {}
-      market_chart_data = {}
-    %>
     <% @long_term_stocks.each do |stock| %>
       <tr>
         <td><%= stock.stock_symbol %></td>
         <td><%= stock.shares %></td>
         <td><%= stock.cost %></td>
-        <%
-          total_cost += stock.total_cost
-          cost_chart_data[stock.stock_symbol] = stock.total_cost
-        %>
         <td><%= stock.latest_price %></td>
-        <%
-          total += stock.market_value
-          market_chart_data[stock.stock_symbol] = stock.market_value
-        %>
         <td><%= stock.market_value %> </td>
-        <td><%= ((stock.latest_price - stock.cost) / stock.cost * 100).round(2) %>%</td>
+        <td><%= stock.caculated_change %>%</td>
         <td><%= stock.ma30 %></td>
         <td><%= stock.caculated_stop_price %></td>
         <td><%= stock.caculated_lost %></td>
-        <%
-          total_risk += stock.caculated_lost
-        %>
         <td><%= stock.caculated_risk %>%</td>
         <td><%= stock.action %></td>
         <td><%= stock.notified_at&.strftime("%Y-%m-%d %I:%M%p") %></td>
@@ -68,15 +49,21 @@ My Positions
   </tbody>
 </table>
 
-<b>Total Market:</b> <%= total %> | Total Cost: <%= total_cost %> | <b>Gain/Lost:</b> <%= total - total_cost%> | Total Capital: <%= total_capital%> | <b>Cash:</b> <%= total_capital - total_cost%> | <b>Total Risk</b>: <%= total_risk%>     <%= ((total_risk * 100).to_f / total_capital).round(2) %>%
+<b>Total Market:</b> <%= @total_market_value %> |
+Total Cost: <%= @total_cost %> |
+<b>Gain/Lost:</b> <%= @total_gain %> |
+Total Capital: <%= LongTermStock::TOTAL_CAPITAL %> |
+<b>Cash:</b> <%= @cash %> |
+<b>Total Risk</b>: <%= @total_risk%>  ---   <%= @total_risk_percentage %>%
+
 <table cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
       <td>
-        <%= pie_chart(cost_chart_data, width: "400px") %>
+        <%= pie_chart(@cost_chart_data, width: "400px") %>
       </td>
       <td>
-        <%= pie_chart(market_chart_data, width: "400px") %>
+        <%= pie_chart(@market_chart_data, width: "400px") %>
       </td>
     </tr>
   </tbody>

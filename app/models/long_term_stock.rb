@@ -17,6 +17,8 @@
 #
 
 class LongTermStock < ApplicationRecord
+  TOTAL_CAPITAL = 250000
+
   SELL_ACTION = 'sell'
   HOLD_ACTION = 'hold'
   NULL_ACTION = 'null'
@@ -61,5 +63,9 @@ class LongTermStock < ApplicationRecord
 
   def market_value
     (latest_price * shares).to_i
+  end
+
+  def caculated_change
+    ((latest_price - cost) / cost * 100).round(2)
   end
 end
