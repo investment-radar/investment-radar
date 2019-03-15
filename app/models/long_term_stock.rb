@@ -45,12 +45,16 @@ class LongTermStock < ApplicationRecord
     (cost * 0.92).round(2)
   end
 
+  def final_stop_price
+    stop_price || caculated_stop_price
+  end
+
   def caculated_risk
-    ((cost - caculated_stop_price) / cost * 100).round(2)
+    ((cost - final_stop_price) / cost * 100).round(2)
   end
 
   def caculated_lost
-    ((cost - caculated_stop_price) * shares).round
+    ((cost - final_stop_price) * shares).round
   end
 
   def total_cost

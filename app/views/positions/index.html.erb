@@ -16,7 +16,8 @@ My Positions
       <th>Value</th>
       <th>Change</th>
       <th>MA30</th>
-      <th>Stop</th>
+      <th>Auto Stop</th>
+      <th>Hand Stop</th>
       <th>Risk</>
       <th>Risk%</th>
       <th>Action</th>
@@ -33,6 +34,7 @@ My Positions
         <td><%= stock.caculated_change %>%</td>
         <td><%= stock.ma30 %></td>
         <td><%= stock.caculated_stop_price %></td>
+        <td><%= stock.stop_price %></td>
         <td><%= stock.caculated_lost %></td>
         <td><%= stock.caculated_risk %>%</td>
         <td><%= stock.action %></td>
