@@ -20,7 +20,7 @@ My Positions
       <th>Hand Stop</th>
       <th>Risk</>
       <th>Risk%</th>
-      <th>Action</th>
+      <th>Trade Time</th>
       <th>Notified At</th>
       <th>Ack</th>
     </tr>
@@ -37,7 +37,7 @@ My Positions
         <td><%= stock.stop_price %></td>
         <td><%= stock.caculated_lost %></td>
         <td><%= stock.caculated_risk %>%</td>
-        <td><%= stock.action %></td>
+        <td><%= time_ago_in_words(stock.first_trade_time || Time.current) %></td>
         <td><%= stock.notified_at&.strftime("%Y-%m-%d %I:%M%p") %></td>
         <td>
           <% if stock.need_ack? %>

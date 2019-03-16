@@ -20,7 +20,8 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     acked_at: Field::DateTime,
     stop_price: Field::Number,
     shares: Field::Number,
-    ma30: Field::Number
+    ma30: Field::Number,
+    first_trade_time: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -37,7 +38,8 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :acked_at,
     :cost,
     :shares,
-    :ma30
+    :ma30,
+    :first_trade_time
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -52,6 +54,7 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :cost,
     :shares,
     :ma30,
+    :first_trade_time,
     :created_at,
     :updated_at
   ].freeze
@@ -67,7 +70,8 @@ class LongTermStockDashboard < Administrate::BaseDashboard
     :shares,
     :ma30,
     :stop_price,
-    :action
+    :action,
+    :first_trade_time
   ].freeze
 
   # Overwrite this method to customize how long term stocks are displayed
