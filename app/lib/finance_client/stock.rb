@@ -2,12 +2,13 @@
 
 module FinanceClient
   class Stock
-    BASE_URL = 'https://api.iextrading.com'
-    API_VERSION = '1.0'
+    BASE_URL = 'https://cloud.iexapis.com'
+    API_VERSION = 'beta'
+    TOKEN = Rails.application.credentials.iex_token
 
     class << self
       # TODO: :reek:NilCheck
-      def quote(symbol, params = nil)
+      def quote(symbol, params = { token: TOKEN })
         quote_url = "/#{API_VERSION}/stock/#{symbol}/quote"
         response = connection.get quote_url, params
 

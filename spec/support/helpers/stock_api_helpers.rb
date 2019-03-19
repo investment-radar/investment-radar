@@ -14,7 +14,7 @@ module StockApiHelpers
   end
 
   def stub_quote_request(stock_symbol, options = {})
-    quote_url = "https://api.iextrading.com/1.0/stock/#{stock_symbol}/quote"
+    quote_url = "https://cloud.iexapis.com/beta/stock/#{stock_symbol}/quote?token=#{FinanceClient::Stock::TOKEN}"
     status = options.fetch(:status, 200)
 
     response_body = options.fetch(:response_body, {
