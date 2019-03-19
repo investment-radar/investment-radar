@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/bingxie/yahoo-finance.git
+  revision: 33e05dc1edd179bdcaa5857a14598112be1073d7
+  specs:
+    yahoo-finance (2.0.0)
+      json
+
+GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
   revision: c0960bd72dd41c4e9bd8b4375254f539776bfe95
   specs:
@@ -261,6 +268,7 @@ GEM
     minitest (5.11.3)
     momentjs-rails (2.20.1)
       railties (>= 3.1)
+    moving_avg (0.2.2)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -507,6 +515,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   lograge
   mailgun-ruby (~> 1.1.6)
+  moving_avg
   neat
   normalize-rails
   pg (~> 0.18)
@@ -536,6 +545,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webmock
   webpacker (~> 3.3)
+  yahoo-finance!
   zero_downtime_migrations
 
 RUBY VERSION

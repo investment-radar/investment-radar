@@ -88,6 +88,9 @@ gem 'zero_downtime_migrations'
 # Easiest way to add multi-environment yaml settings to Rails
 gem 'config'
 
+gem 'yahoo-finance', github: 'bingxie/yahoo-finance'
+gem 'moving_avg'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
