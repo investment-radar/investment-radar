@@ -18,10 +18,10 @@ class PositionsController < ApplicationController
       @market_chart_data[stock.stock_symbol] = stock.market_value
       @total_cost += stock.total_cost
       @total_market_value += stock.market_value
-      @total_risk += stock.caculated_lost
+      @total_risk += stock.calculated_lost
     end
 
-    @long_term_stocks = long_term_stocks.sort_by(&:caculated_change)
+    @long_term_stocks = long_term_stocks.sort_by(&:calculated_change)
 
     @total_gain = @total_market_value - @total_cost
     @cash = LongTermStock::TOTAL_CAPITAL - @total_cost

@@ -92,14 +92,18 @@ RSpec.describe LongTermStock, type: :model do
     end
   end
 
-  describe '#caculated_stop_price' do
-    let(:stock) { build(:long_term_stock, cost: 100.00, ma30: ma30) }
+  describe '#calculated_stop_price' do
+    let(:stock) { build(:long_term_stock, cost: 100.00) }
+
+    before do
+      allow(stock).to receive(:calculated_ma30).and_return(ma30)
+    end
 
     context 'when ma30 is nil' do
       let(:ma30) { nil }
 
       it 'returns max_lost_price' do
-        expect(stock.caculated_stop_price).to eq 92.0
+        expect(stock.calculated_stop_price).to eq 92.0
       end
     end
 
@@ -107,7 +111,7 @@ RSpec.describe LongTermStock, type: :model do
       let(:ma30) { 93.05 }
 
       it 'returns ma30 price' do
-        expect(stock.caculated_stop_price).to eq ma30
+        expect(stock.calculated_stop_price).to eq ma30
       end
     end
 
@@ -115,13 +119,13 @@ RSpec.describe LongTermStock, type: :model do
       let(:ma30) { 91.05 }
 
       it 'returns ma30 price' do
-        expect(stock.caculated_stop_price).to eq 92.00
+        expect(stock.calculated_stop_price).to eq 92.00
       end
     end
   end
 
   describe '#total_cost' do
-    it 'caculates total cost with cost and shares' do
+    it 'calculates total cost with cost and shares' do
       stock = build(:long_term_stock, cost: 10.5, shares: 50)
       expect(stock.total_cost).to eq 525
     end
@@ -133,7 +137,7 @@ RSpec.describe LongTermStock, type: :model do
   end
 
   describe '#market_value' do
-    it 'caculates market value with latest price and shares' do
+    it 'calculates market value with latest price and shares' do
       stock = build(:long_term_stock, shares: 50)
       allow(stock).to receive(:latest_price).and_return(22.3)
 
@@ -141,19 +145,19 @@ RSpec.describe LongTermStock, type: :model do
     end
   end
 
-  describe '#caculated_risk' do
+  describe '#calculated_risk' do
     it 'returns the percentage of risk' do
       stock = build(:long_term_stock, cost: 50)
-      allow(stock).to receive(:caculated_stop_price).and_return(45.6)
-      expect(stock.caculated_risk).to eq 8.8
+      allow(stock).to receive(:calculated_stop_price).and_return(45.6)
+      expect(stock.calculated_risk).to eq 8.8
     end
   end
 
-  describe '#caculated_lost' do
+  describe '#calculated_lost' do
     it 'returns the total in risk' do
       stock = build(:long_term_stock, cost: 50.71, shares: 100)
-      allow(stock).to receive(:caculated_stop_price).and_return(45.6)
-      expect(stock.caculated_lost).to eq 511
+      allow(stock).to receive(:calculated_stop_price).and_return(45.6)
+      expect(stock.calculated_lost).to eq 511
     end
   end
 end

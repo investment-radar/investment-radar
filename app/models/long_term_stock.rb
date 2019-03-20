@@ -36,10 +36,14 @@ class LongTermStock < ApplicationRecord
     action == LongTermStock::SELL_ACTION && acked_at.blank?
   end
 
-  def caculated_stop_price
-    return max_lost_price if ma30.nil?
+  def calculated_stop_price
+    return max_lost_price if calculated_ma30.nil?
 
-    max_lost_price > ma30 ? max_lost_price : ma30
+    max_lost_price > calculated_ma30 ? max_lost_price : calculated_ma30
+  end
+
+  def calculated_ma30
+    @calculated_ma30 ||= MaCalculator.wma_30(stock_symbol).round(2)
   end
 
   def max_lost_price
@@ -47,14 +51,14 @@ class LongTermStock < ApplicationRecord
   end
 
   def final_stop_price
-    stop_price || caculated_stop_price
+    stop_price || calculated_stop_price
   end
 
-  def caculated_risk
+  def calculated_risk
     ((cost - final_stop_price) / cost * 100).round(2)
   end
 
-  def caculated_lost
+  def calculated_lost
     ((cost - final_stop_price) * shares).round
   end
 
@@ -70,7 +74,7 @@ class LongTermStock < ApplicationRecord
     (latest_price * shares).to_i
   end
 
-  def caculated_change
+  def calculated_change
     ((latest_price - cost) / cost * 100).round(2)
   end
 end

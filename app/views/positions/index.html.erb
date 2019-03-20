@@ -31,12 +31,12 @@ My Positions
         <td><%= stock.cost %></td>
         <td><%= stock.latest_price %></td>
         <td><%= stock.market_value %> </td>
-        <td><%= stock.caculated_change %>%</td>
-        <td><%= stock.ma30 %></td>
-        <td><%= stock.caculated_stop_price %></td>
+        <td><%= stock.calculated_change %>%</td>
+        <td><%= stock.calculated_ma30 %></td>
+        <td><%= stock.calculated_stop_price %></td>
         <td><%= stock.stop_price %></td>
-        <td><%= stock.caculated_lost %></td>
-        <td><%= stock.caculated_risk %>%</td>
+        <td><%= stock.calculated_lost %></td>
+        <td><%= stock.calculated_risk %>%</td>
         <td><%= time_ago_in_words(stock.first_trade_time || Time.current) %></td>
         <td><%= stock.notified_at&.strftime("%Y-%m-%d %I:%M%p") %></td>
         <td>
