@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :positions, only: :index
   patch '/positions/:id/ack', to: 'positions#ack', as: 'ack_stock'
 
+  resources :trading_records, only: :index
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'welcome#index'

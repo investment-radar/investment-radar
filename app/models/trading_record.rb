@@ -31,7 +31,11 @@ class TradingRecord < ApplicationRecord
           results[record.symbol] = record.volume * record.price
         end
       elsif record.direction == 'buy'
-        results[record.symbol] -= record.volume * record.price
+        if results[record.symbol]
+          results[record.symbol] -= record.volume * record.price
+        else
+          continue
+        end
       end
     end
 

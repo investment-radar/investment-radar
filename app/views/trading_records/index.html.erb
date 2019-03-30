@@ -1,0 +1,20 @@
+<h2>
+盈亏报告
+</h2>
+
+<table cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <th>Stock</th>
+      <th>Profit</th>
+    <tr>
+    <% @sorted_records.each do |record| %>
+      <tr>
+        <td><%= record[0] %></td>
+        <td><%= record[1].round(2) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Total Profit: <%= @total_profit %> </h2>
