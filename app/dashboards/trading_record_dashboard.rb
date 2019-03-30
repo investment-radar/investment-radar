@@ -14,6 +14,7 @@ class TradingRecordDashboard < Administrate::BaseDashboard
     volume: Field::Number,
     price: Field::Number.with_options(decimals: 2),
     deal_time: Field::DateTime,
+    status: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -30,6 +31,7 @@ class TradingRecordDashboard < Administrate::BaseDashboard
     :volume,
     :price,
     :deal_time,
+    :status
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -41,8 +43,9 @@ class TradingRecordDashboard < Administrate::BaseDashboard
     :volume,
     :price,
     :deal_time,
+    :status,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -54,6 +57,7 @@ class TradingRecordDashboard < Administrate::BaseDashboard
     :volume,
     :price,
     :deal_time,
+    :status
   ].freeze
 
   # Overwrite this method to customize how trading records are displayed

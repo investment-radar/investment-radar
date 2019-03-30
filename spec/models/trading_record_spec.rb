@@ -10,6 +10,11 @@
 #  deal_time  :datetime         not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  status     :string           default("closed")
+#
+# Indexes
+#
+#  index_trading_records_on_status  (status)
 #
 
 require 'rails_helper'
