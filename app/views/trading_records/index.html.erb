@@ -18,3 +18,7 @@
 </table>
 
 <h2>Total Profit: <%= @total_profit %> </h2>
+
+<% chart_data = {"2019-01" => 2402.2, '2019-02' => 12402.2, '2019-03' => 22402.2}%>
+
+<%= column_chart chart_data %>
