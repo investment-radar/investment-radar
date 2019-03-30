@@ -2,6 +2,12 @@
 盈亏报告
 </h2>
 
+<h2>Total Profit: <%= @total_profit %> </h2>
+
+<% chart_data = {"2019-01" => 2402.2, '2019-02' => 12402.2, '2019-03' => 22402.2}%>
+
+<%= column_chart chart_data %>
+
 <table cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
@@ -16,9 +22,3 @@
     <% end %>
   </tbody>
 </table>
-
-<h2>Total Profit: <%= @total_profit %> </h2>
-
-<% chart_data = {"2019-01" => 2402.2, '2019-02' => 12402.2, '2019-03' => 22402.2}%>
-
-<%= column_chart chart_data %>
