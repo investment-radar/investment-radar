@@ -20,3 +20,12 @@
   <%= link_to('Login', new_user_session_path)  %>
   </li>
 <% end %>
+<h2>Market News</h2>
+<% @market_news.each do |news| %>
+  <p><%= news["datetime"].strftime('%Y-%m-%d %I:%M%p') %> | <%= news["source"] %> |<a href="<%= news["url"] %>"><%= news["headline"] %></a></p>
+<% end %>
+
+<h2>Stocks News</h2>
+<% @stocks_news.each do |news| %>
+  <p><%= news["datetime"].strftime('%Y-%m-%d %I:%M%p') %> | <%= news["source"] %> |<a href="<%= news["url"] %>"><%= news["headline"] %></a></p>
+<% end %>
