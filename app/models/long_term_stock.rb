@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: long_term_stocks
@@ -18,7 +19,7 @@
 #
 
 class LongTermStock < ApplicationRecord
-  TOTAL_CAPITAL = 250000
+  TOTAL_CAPITAL = 250_000
 
   SELL_ACTION = 'sell'
   HOLD_ACTION = 'hold'
