@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Route Map
 #
 # Prefix Verb URI Pattern Controller#Action
@@ -9,11 +11,10 @@ Rails.application.routes.draw do
     resources :users
     resources :stocks
     resources :watchlists
-    resources :buy_in_stocks
     resources :long_term_stocks
     resources :trading_records
 
-    root to: "users#index"
+    root to: 'users#index'
   end
 
   resources :weekly_charts, only: :index

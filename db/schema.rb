@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_30_013614) do
+ActiveRecord::Schema.define(version: 2019_04_05_034034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "buy_in_stocks", force: :cascade do |t|
-    t.string "stock_symbol", null: false
-    t.float "cost_price", null: false
-    t.string "action"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
